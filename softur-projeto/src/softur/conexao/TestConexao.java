@@ -8,6 +8,8 @@ public class TestConexao {
 		
 		Persistence.createEntityManagerFactory("softurPU");
 		
-		System.out.println("Conexão feita com sucesso !");
+		System.out.println("===========================================");
+		System.out.println("<<<<<<< Conexão feita com sucesso ! >>>>>>>");
+		System.out.println("===========================================");
 	}
 }
