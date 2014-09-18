@@ -1,16 +1,20 @@
 package softur.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Funcionario implements Serializable {
@@ -34,18 +38,21 @@ public class Funcionario implements Serializable {
 	private String email;
 
 	@ManyToOne
-	@Column(nullable = false)
+	@JoinColumn(name = "cod_cargo")
 	private Cargo cargo;
 
+	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)
-	private Date dataEntrada;
+	private Calendar dataEntrada;
 
-	private Date dataSaida;
+	@Temporal(TemporalType.DATE)
+	private Calendar dataSaida;
 
 	@Column(nullable = false)
 	private Double salario;
 
 	@OneToOne
+	@PrimaryKeyJoinColumn(name = "cod_funcionario")
 	private Endereco endereco;
 
 	private String status;
@@ -101,19 +108,19 @@ public class Funcionario implements Serializable {
 		this.cargo = cargo;
 	}
 
-	public Date getDataEntrada() {
+	public Calendar getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(Date dataEntrada) {
+	public void setDataEntrada(Calendar dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 
-	public Date getDataSaida() {
+	public Calendar getDataSaida() {
 		return dataSaida;
 	}
 
-	public void setDataSaida(Date dataSaida) {
+	public void setDataSaida(Calendar dataSaida) {
 		this.dataSaida = dataSaida;
 	}
 

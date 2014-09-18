@@ -1,6 +1,7 @@
 package softur.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,8 +22,8 @@ public class Cargo implements Serializable {
 	@Column(name = "nome_cargo", nullable = false)
 	private String nomeCargo;
 
-	@OneToMany
-	private Funcionario funcionario;
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionarios;
 
 	public Long getId() {
 		return id;
@@ -40,12 +41,12 @@ public class Cargo implements Serializable {
 		this.nomeCargo = nomeCargo;
 	}
 
-	public Funcionario getFuncionario() {
-		return funcionario;
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
