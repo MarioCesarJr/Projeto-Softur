@@ -1,13 +1,16 @@
 package softur.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Funcionario implements Serializable {
@@ -18,20 +21,37 @@ public class Funcionario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 60, nullable = false)
+	@Column(length = 60, nullable = false, name = "nome_funcionario")
 	private String nome;
 
-	@Column(length = 11, nullable = false)
+	// tratar se for estrangeiro
 	private String cpf;
 
 	@Column(length = 11, nullable = false)
 	private String telefone;
 
+	@Column(nullable = false)
 	private String email;
 
 	@ManyToOne
 	@Column(nullable = false)
 	private Cargo cargo;
+
+	@Column(nullable = false)
+	private Date dataEntrada;
+
+	private Date dataSaida;
+
+	@Column(nullable = false)
+	private Double salario;
+
+	@OneToOne
+	private Endereco endereco;
+
+	private String status;
+
+	@Lob
+	private String observacao;
 
 	public Long getId() {
 		return id;
@@ -81,17 +101,59 @@ public class Funcionario implements Serializable {
 		this.cargo = cargo;
 	}
 
+	public Date getDataEntrada() {
+		return dataEntrada;
+	}
+
+	public void setDataEntrada(Date dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+
+	public Date getDataSaida() {
+		return dataSaida;
+	}
+
+	public void setDataSaida(Date dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+	public Double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
-		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result
-				+ ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
 
@@ -104,37 +166,13 @@ public class Funcionario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Funcionario other = (Funcionario) obj;
-		if (cargo == null) {
-			if (other.cargo != null)
-				return false;
-		} else if (!cargo.equals(other.cargo))
-			return false;
-		if (cpf == null) {
-			if (other.cpf != null)
-				return false;
-		} else if (!cpf.equals(other.cpf))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
-				return false;
-		} else if (!telefone.equals(other.telefone))
-			return false;
 		return true;
 	}
 
+	
 }
