@@ -9,9 +9,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Endereco implements Serializable{
-	
+public class Endereco implements Serializable {
+
 	private static final long serialVersionUID = 1L;
+
+	public Endereco() {
+
+	}
+
+	public Endereco(String estado, String cidade, String cep, String rua,String numero, String pais, String complemento) {
+		this.estado = estado;
+		this.cidade = cidade;
+		this.cep = cep;
+		this.rua = rua;
+		this.numero = numero;
+		this.pais = pais;
+		this.complemento = complemento;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

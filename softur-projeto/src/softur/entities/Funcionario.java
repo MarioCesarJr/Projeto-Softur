@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -52,7 +51,7 @@ public class Funcionario implements Serializable {
 	private Double salario;
 
 	@OneToOne
-	@PrimaryKeyJoinColumn(name = "cod_funcionario")
+	@JoinColumn(name = "cod_endereco")
 	private Endereco endereco;
 
 	private String status;
