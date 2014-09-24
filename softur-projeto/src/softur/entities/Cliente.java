@@ -1,6 +1,9 @@
 package softur.entities;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -36,11 +39,13 @@ public class Cliente implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)
-	private Date dataCadastro;
+	private Calendar dataCadastro;
 
 	@OneToOne
 	@PrimaryKeyJoinColumn(name = "cod_cliente")
 	private Endereco endereco;
+
+	
 
 	public Long getId() {
 		return id;
@@ -82,11 +87,11 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public Date getDataCadastro() {
+	public Calendar getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(Date dataCadastro) {
+	public void setDataCadastro(Calendar dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 
