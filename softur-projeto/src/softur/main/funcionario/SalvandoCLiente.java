@@ -1,13 +1,10 @@
 package softur.main.funcionario;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import softur.dao.ClienteDao;
 import softur.dao.EnderecoDAO;
 import softur.entities.Cliente;
-import softur.dao.ClienteDao;
 import softur.entities.Endereco;
 
 public class SalvandoCLiente {
@@ -24,7 +21,7 @@ public class SalvandoCLiente {
 
 		Cliente cliente = new Cliente();
 		cliente.setCpf("00935041958");
-		cliente.setNome("João Pedro");
+		cliente.setNome("Joï¿½o Pedro");
 		cliente.setEmail("naotenhoemail@naotenhomesmo.com.br");
 		cliente.setTelefone("99999999");
 		
@@ -32,9 +29,7 @@ public class SalvandoCLiente {
 		cliente.setDataCadastro(dataCad);
 		
 		
-		
-
-		ClienteDao cDao = new ClienteDao(null);
+		ClienteDao cDao = new ClienteDao();
 		cDao.iniciarTransacao();
 		cDao.salvarCliente(cliente);
 		cDao.confirmarTransacao();

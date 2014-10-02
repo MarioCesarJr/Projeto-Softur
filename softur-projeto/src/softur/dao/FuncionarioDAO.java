@@ -1,13 +1,17 @@
 package softur.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 
 import softur.entities.Funcionario;
 import softur.util.JpaUtil;
 
-public class FuncionarioDAO {
+public class FuncionarioDAO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private EntityManager em;
 
@@ -29,7 +33,18 @@ public class FuncionarioDAO {
 	}
 
 	public void deletarFuncionario(Funcionario funcionario) {
-		em.remove(funcionario);
+		funcionario = buscarFuncionarioId(funcionario.getId());
+		try {
+			em.remove(funcionario);
+			em.flush();
+		} catch (PersistenceException e) {
+			e.getMessage();
+		}
+
+	}
+
+	public void atualizar(Funcionario funcionario) {
+		em.merge(funcionario);
 	}
 
 	public Funcionario buscarFuncionarioId(Long codigo) {

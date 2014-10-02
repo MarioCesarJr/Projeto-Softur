@@ -1,24 +1,21 @@
 package softur.dao;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 import softur.entities.Cliente;
 import softur.util.JpaUtil;
 
-public class ClienteDao {
-	private EntityManager em;
-	
+public class ClienteDao implements Serializable {
 
-	public ClienteDao(EntityManager entityManager){
-		this.em = entityManager;
-	}
+	private static final long serialVersionUID = 1L;
 	
+	private EntityManager em;
+
 	public void iniciarTransacao() {
 		em = JpaUtil.createEntityManager();
 		em.getTransaction().begin();
@@ -31,30 +28,32 @@ public class ClienteDao {
 	public void fecharTransacao() {
 		em.close();
 	}
-	
-	public void salvarCliente (Cliente cliente){
+
+	public void salvarCliente(Cliente cliente) {
 		em.persist(cliente);
 	}
-	
-	public void excluirClientePorId(Long l){
-		Cliente cliente = em.getReference(Cliente.class, l);
+
+	public void excluirCliente(Cliente cliente) {
+		cliente = buscarClientePorId(cliente.getId());
+		try {
+			em.remove(cliente);
+		} catch (PersistenceException e) {
+			e.getMessage();
+		}
 	}
-	
-	public Cliente buscarClientePorId(Long id){
+
+	public Cliente buscarClientePorId(Long id) {
 		return em.find(Cliente.class, id);
 	}
-	
-	public void editarCliente(Cliente cliente){
+
+	public void editarCliente(Cliente cliente) {
 		em.merge(cliente);
-	}	
-	
-	public List<Cliente> listarTodos(){
-		Query query = em.createQuery("From cliente", Cliente.class);
-		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Cliente> listarTodos() {
+		Query query = em.createQuery("From Cliente", Cliente.class);
 		return query.getResultList();
 	}
-	
-	
-	
-	
+
 }
