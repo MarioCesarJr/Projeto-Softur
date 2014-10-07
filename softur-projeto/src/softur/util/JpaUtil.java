@@ -12,7 +12,7 @@ public class JpaUtil {
 		return emf.createEntityManager();
 	}
 	
-	public void closeFactory(){
+	public static void closeFactory(){
 		emf.close();
 	}
 
