@@ -3,6 +3,7 @@ package softur.entities;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,7 +51,7 @@ public class Funcionario implements Serializable {
 	@Column(nullable = false)
 	private Double salario;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.DETACH)
 	@JoinColumn(name = "cod_endereco")
 	private Endereco endereco;
 
@@ -58,6 +59,8 @@ public class Funcionario implements Serializable {
 
 	@Lob
 	private String observacao;
+
+	private String numeroCNH;
 
 	public Long getId() {
 		return id;
@@ -155,6 +158,14 @@ public class Funcionario implements Serializable {
 		this.observacao = observacao;
 	}
 
+	public String getNumeroCNH() {
+		return numeroCNH;
+	}
+
+	public void setNumeroCNH(String numeroCNH) {
+		this.numeroCNH = numeroCNH;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -180,5 +191,4 @@ public class Funcionario implements Serializable {
 		return true;
 	}
 
-	
 }

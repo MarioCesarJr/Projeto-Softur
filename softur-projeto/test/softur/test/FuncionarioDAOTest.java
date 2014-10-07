@@ -27,9 +27,6 @@ public class FuncionarioDAOTest extends DBUnitTest{
 		
 		f.setNome("Joao da silva");
 		f.setCpf("05894987898");
-		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil", "");
-		f.setEndereco(endereco);
-		
 		Calendar dataEntrada = Calendar.getInstance();
 		dataEntrada.set(2010, 8, 21);
 		f.setDataEntrada(dataEntrada);
@@ -41,6 +38,9 @@ public class FuncionarioDAOTest extends DBUnitTest{
 		f.setEmail("ciclano@gmail.com");
 		
 		f.setTelefone("22282828");
+		
+		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil", "");
+		f.setEndereco(endereco);
 		
 		f.setSalario(2000d);
 		funcionarioDao.salvarFuncionario(f);

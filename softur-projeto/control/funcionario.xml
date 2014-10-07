@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-     <funcionario id="1" nome="Joao da silva" cargo="Motorista" cpf="05894987898"
-     />
+     <funcionario id="1" nome="Joao da silva" cpf="05894987898" telefone="22282828" email="ciclano@gmail.com" cod_cargo="1"
+     dataEntrada="2010, 8, 21" dataSaida="2013, 9, 11" salario="2000"/>
+  
+      <cargo id="1" nome_cargo="Motorista" funcionarios="1"/>
+      
+       <endereco id="1" estado="SC" cidade="Florianopolis" cep="88786098" rua="Rua Motta da Silva" numero="21" pais="Brasil" 
+     cod_funcionario="1"/>
 </dataset>
