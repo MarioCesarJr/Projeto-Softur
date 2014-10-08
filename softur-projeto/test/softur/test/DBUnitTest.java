@@ -12,7 +12,6 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 
 import softur.dao.CargoDAO;
-import softur.dao.EnderecoDAO;
 import softur.dao.FuncionarioDAO;
 import softur.util.JpaUtil;
 
@@ -21,7 +20,7 @@ public class DBUnitTest extends DBTestCase {
 	private EntityManager entityManager;
 	public FuncionarioDAO funcionarioDao;
 	public CargoDAO cargoDao;
-	public EnderecoDAO enderecoDao;
+
 	
 	public DBUnitTest() {
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
@@ -37,7 +36,7 @@ public class DBUnitTest extends DBTestCase {
 	}
 	
 	protected DatabaseOperation getsetDatabaseOperation() throws Exception{
-		return DatabaseOperation.DELETE_ALL;
+		return DatabaseOperation.INSERT;
 	}
 	
 	public void begin(){

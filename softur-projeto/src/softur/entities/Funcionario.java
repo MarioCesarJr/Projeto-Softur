@@ -51,7 +51,7 @@ public class Funcionario implements Serializable {
 	@Column(nullable = false)
 	private Double salario;
 
-	@OneToOne(cascade=CascadeType.DETACH)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "cod_endereco")
 	private Endereco endereco;
 
