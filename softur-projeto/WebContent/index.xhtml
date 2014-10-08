@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="WEB-INF/templatePortal/principal.xhtml">
+	
+	<ui:insert>
+      <ui:include src="/WEB-INF/templatePortal/header.xhtml" />
+    </ui:insert>
+    
+    <!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+	<div id="blue">
+	    <div class="container">
+			<div class="row">
+				<h3>Gestão em Turismo</h3>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
+    
+	     
+	 <!-- *****************************************************************************************************************
+	  CONTENT
+	 ***************************************************************************************************************** -->
+
+	 <div class="container mtb">
+	 	<div class="row">
+	 	
+	 		<!-- LIST -->
+	 		<div class="col-lg-8">
+	 			<!-- Slide -->
+		 		<p>
+				<div id="myCarousel" class="carousel slide" style="height: 400px; width:750px">
+				         <ol class="carousel-indicators">
+						      <li data-target="#myCarousel" data-slide-to = "0" class="active"></li>
+							  <li data-target="#myCarousel" data-slide-to = "1"></li>
+							  <li data-target="#myCarousel" data-slide-to = "2"></li>
+						 </ol>
+						 
+						 <div class="carousel-inner" style="height: 400px;">
+						       <div class="item active" >
+							        <img src="assets/img/cristo.jpg" alt="cristo" class="img-responsive"></img>
+									   <div class="carousel-caption">
+									         <h3></h3>
+									   </div>
+						       </div>
+							   
+							   <div class="item">
+							        <img src="assets/img/copacabana.jpg" alt="copacabana" class="img-responsive"></img>
+						       </div>
+							   
+							   <div class="item">
+							        <img src="assets/img/estadioNacional.jpg" alt="estadioNacional" class="img-responsive"></img>
+						       </div>
+                                                       
+                                                       
+						 </div>
+						 
+						 <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+						       <span class="icon-prev"></span>
+						 </a>
+						 
+						 <a class="carousel-control right" href="#myCarousel" data-slide="next">
+						       <span class="icon-next"></span>
+						 </a>
+				   </div>
+				
+				</p>
+		 		
+		 		
+			</div><!--/col-lg-8 -->
+	 		
+	 		
+	 		<!-- SIDEBAR -->
+	 		<div class="col-lg-4">
+		 		<h4>Empresa</h4>
+		 		
+		 		<div class="hline"></div><br/> 
+				  <img src="assets/img/logo.png" height="112" width="112"></img><br/><br/>
+			 	<h4>Foco no Atendimento personalizado, criando um vínculo de amizade e prezando pelo bem-estar e conforto dos clientes.</h4>
+		 		<div class="spacing"></div>
+		 		
+		 		
+		 			
+	 		</div>
+	 	</div><!--/row -->
+	 </div><!--/container -->
+	     
+
+   	
+	
+</ui:composition>
+</html>
