@@ -7,31 +7,30 @@
 <h:head>
 	<title><ui:insert name="title" />Softur</title>
 	<link rel="icon" href="#{resource['img/airplane.ico']}"></link>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
 	
 	<!-- Bootstrap core CSS -->
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 	
 	<!-- Custom styles for this template -->
 	<h:outputStylesheet library="css" name="style.css" />
-	<h:outputStylesheet library="css" name="font-awesome.min.css" />
-	
-	<h:outputScript library="js" name="modernizr.js" />
-    	
+	 <h:outputStylesheet library="css" name="font-awesome.min.css" />
+    		
 </h:head>
 <h:body>
-    
-    <ui:insert>
-      <ui:include src="/WEB-INF/templatePortal/footer.xhtml" />
-    </ui:insert>
 
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />      
-     <h:outputScript library="js" name="bootstrap.min.js" />
-	 <h:outputScript library="js" name="retina-1.1.0.js" />
-	 <h:outputScript library="js" name="jquery.hoverdir.js" />
-	 <h:outputScript library="js" name="jquery.hoverex.min.js" />
-	 <h:outputScript library="js" name="jquery.prettyPhoto.js" />
-	 <h:outputScript library="js" name="jquery.isotope.min.js" />
-	 <h:outputScript library="js" name="custom.js" />
-    	
+      <ui:include src="/WEB-INF/templatePortal/header.xhtml" />
+    
+        <ui:insert name="content">
+    
+        </ui:insert>
+    
+    
+      <ui:include src="/WEB-INF/templatePortal/footer.xhtml" />
+    
+         <h:outputScript library="js" name="jquery.js" />	 
+	     <h:outputScript library="js" name="bootstrap.min.js" />
+
+                  
 </h:body>
 </html>

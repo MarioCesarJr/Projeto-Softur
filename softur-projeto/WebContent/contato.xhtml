@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="WEB-INF/templatePortal/principal.xhtml">
+	
+   <ui:define name="content">
+          
+     <!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+	<div id="blue">
+	    <div class="container">
+			<div class="row">
+				<h3>Contato</h3>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
+
+	 
+	<!-- *****************************************************************************************************************
+	  CONTENT
+	 ***************************************************************************************************************** -->
+
+	 <div class="container mtb">
+	 	<div class="row">
+	 	      <div class="col-lg-8">
+                    <h:form role="form">
+						  <div class="form-group">
+							<label>Nome</label>
+							<h:inputText value="" styleClass="form-control"/>
+						  </div>
+						  <div class="form-group">
+							<label>Email</label>
+							<h:inputText value="" styleClass="form-control" />
+						  </div>
+						  <div class="form-group">
+							<label>Assunto</label>
+							<h:inputText value="" styleClass="form-control"/>
+						  </div>
+						  <div class="form-group">
+							<label>Mensagem</label>
+							<h:inputTextarea value="" styleClass="form-control"/>
+						  </div>
+						  <h:commandButton value="Enviar" styleClass="btn btn-theme" />
+					</h:form>
+			  </div>		
+					<div class="col-lg-4">
+						<h4>Nosso Contato</h4>
+						<div class="hline"></div>
+							<p>
+								Eduardo Horn, 186,<br/>
+		 				        Jardim Atlantico, Florianópolis SC,<br/>
+		 				        Brasil.<br/>
+							</p>
+							<p>
+								Email: softur@gmail.com<br/>
+								Tel: +48 0000-0000
+							</p>
+					</div>
+	 		
+	 		
+	 	</div><!--/row -->
+	 </div><!--/container -->
+          
+   </ui:define>
+   
+</ui:composition>
+</html>
