@@ -25,7 +25,7 @@ public static boolean validaCPF(String cpf) {
         return calculaDigitoVerificador(cpf.substring(0, 9)).equals(cpf.substring(9, 11));
 }
 
-  // Verifica se é um cpf padrão
+  // Verifica se é um cpf padrão.
 public static boolean isCPFPadrao(String cpf) {
         if (cpf.equals("11111111111") || cpf.equals("22222222222")
                         || cpf.equals("33333333333") || cpf.equals("44444444444")
