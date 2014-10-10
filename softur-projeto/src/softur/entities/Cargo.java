@@ -27,7 +27,7 @@ public class Cargo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "nome_cargo", nullable = false)
+	@Column(name = "nome_cargo")
 	private String nomeCargo;
 
 	@OneToMany(mappedBy = "cargo")

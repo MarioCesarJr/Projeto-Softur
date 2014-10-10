@@ -2,6 +2,8 @@ package softur.main.funcionario;
 
 import java.util.Calendar;
 
+import javax.persistence.EntityManager;
+
 import softur.dao.CargoDAO;
 import softur.dao.FuncionarioDAO;
 import softur.entities.Cargo;
@@ -12,6 +14,8 @@ public class SalvandoFuncionario {
 
 	public static void main(String[] args) {
 
+		EntityManager em = null;
+		
 		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil", "");
 		
 		Funcionario funcionario = new Funcionario();
@@ -19,7 +23,7 @@ public class SalvandoFuncionario {
 		funcionario.setNome("Ciclano da Silva");
 
 		Cargo cargo = new Cargo("Motorista");
-		CargoDAO cDao = new CargoDAO();
+		CargoDAO cDao = new CargoDAO(em);
 		
 		funcionario.setCargo(cargo);
 		
@@ -45,7 +49,7 @@ public class SalvandoFuncionario {
 		cDao.salvarCargo(cargo);
 		cDao.confirmarTransacao();
 
-		FuncionarioDAO dao = new FuncionarioDAO();
+		FuncionarioDAO dao = new FuncionarioDAO(em);
 		dao.iniciarTransacao();
 		dao.salvarFuncionario(funcionario);
 		dao.confirmarTransacao();

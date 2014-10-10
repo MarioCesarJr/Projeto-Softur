@@ -14,45 +14,51 @@ public class ClienteDao implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private EntityManager em;
+	private EntityManager entityManager;
+	
+	public ClienteDao(EntityManager em){
+		this.entityManager = em;
+	}
 
 	public void iniciarTransacao() {
-		em = JpaUtil.createEntityManager();
-		em.getTransaction().begin();
+		JpaUtil.initFactory();
+		entityManager = JpaUtil.getEntityManager();
+		entityManager.getTransaction().begin();
 	}
 
 	public void confirmarTransacao() {
-		em.getTransaction().commit();
+		entityManager.getTransaction().commit();
 	}
 
 	public void fecharTransacao() {
-		em.close();
+		entityManager.close();
+		JpaUtil.closeFactory();
 	}
 
 	public void salvarCliente(Cliente cliente) {
-		em.persist(cliente);
+		entityManager.persist(cliente);
 	}
 
 	public void excluirCliente(Cliente cliente) {
 		cliente = buscarClientePorId(cliente.getId());
 		try {
-			em.remove(cliente);
+			entityManager.remove(cliente);
 		} catch (PersistenceException e) {
 			e.getMessage();
 		}
 	}
 
 	public Cliente buscarClientePorId(Long id) {
-		return em.find(Cliente.class, id);
+		return entityManager.find(Cliente.class, id);
 	}
 
 	public void editarCliente(Cliente cliente) {
-		em.merge(cliente);
+		entityManager.merge(cliente);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Cliente> listarTodos() {
-		Query query = em.createQuery("From Cliente", Cliente.class);
+		Query query = entityManager.createQuery("From Cliente", Cliente.class);
 		return query.getResultList();
 	}
 

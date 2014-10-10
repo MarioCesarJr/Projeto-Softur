@@ -2,6 +2,8 @@ package softur.main.funcionario;
 
 import java.util.Calendar;
 
+import javax.persistence.EntityManager;
+
 import softur.dao.ClienteDao;
 import softur.entities.Cliente;
 import softur.entities.Endereco;
@@ -9,8 +11,8 @@ import softur.entities.Endereco;
 public class SalvandoCLiente {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		EntityManager em = null;
+		
 		Endereco endereco = new Endereco("SC", "Florianopolis", "88095580",
 				"Rua Eduardo Horn", "186", "Brasil", "");
 
@@ -25,7 +27,7 @@ public class SalvandoCLiente {
 		cliente.setDataCadastro(dataCad);
 		
 		
-		ClienteDao cDao = new ClienteDao();
+		ClienteDao cDao = new ClienteDao(em);
 		cDao.iniciarTransacao();
 		cDao.salvarCliente(cliente);
 		cDao.confirmarTransacao();

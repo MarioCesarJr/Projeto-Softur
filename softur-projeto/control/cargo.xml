@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <cargo id="1" nome_cargo="Motorista" funcionarios="1"/>
+	<cargo id="1" nome_cargo="Motorista" />
 </dataset>

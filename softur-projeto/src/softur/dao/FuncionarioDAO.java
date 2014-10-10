@@ -14,9 +14,14 @@ public class FuncionarioDAO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager em;
+	
+	public FuncionarioDAO(EntityManager entityManager){
+		this.em = entityManager;
+	}
 
 	public void iniciarTransacao() {
-		em = JpaUtil.createEntityManager();
+		JpaUtil.initFactory();
+		em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
 	}
 
@@ -26,6 +31,7 @@ public class FuncionarioDAO implements Serializable {
 
 	public void fecharTransacao() {
 		em.close();
+		JpaUtil.closeFactory();
 	}
 
 	public void salvarFuncionario(Funcionario funcionario) {

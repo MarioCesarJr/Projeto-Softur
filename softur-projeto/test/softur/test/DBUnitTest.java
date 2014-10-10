@@ -35,18 +35,29 @@ public class DBUnitTest extends DBTestCase {
 		return new FlatXmlDataSetBuilder().build(new FileInputStream(new File("input/dbZerado.xml")));
 	}
 	
-	protected DatabaseOperation getsetDatabaseOperation() throws Exception{
-		return DatabaseOperation.INSERT;
+	@Override
+	protected DatabaseOperation getSetUpOperation() throws Exception{ 
+		return DatabaseOperation.CLEAN_INSERT;
 	}
-	
+
+    @Override
+    protected DatabaseOperation getTearDownOperation() throws Exception {
+    	return DatabaseOperation.DELETE_ALL;
+    }	
+		
 	public void begin(){
-		entityManager = JpaUtil.createEntityManager();
+		JpaUtil.initFactory();
+		entityManager = JpaUtil.getEntityManager();
 		entityManager.getTransaction().begin();
+		cargoDao = new CargoDAO(entityManager);	
+		funcionarioDao = new FuncionarioDAO(entityManager);
 	}
 	
 	public void close(){
 		entityManager.getTransaction().commit();
 		entityManager.close();
+		entityManager = null;
+		cargoDao = null;
 		JpaUtil.closeFactory();
 	}
 }

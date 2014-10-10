@@ -8,9 +8,14 @@ import softur.util.JpaUtil;
 public class CargoDAO {
 
 	private EntityManager em;
+	
+	public CargoDAO(EntityManager entityManager){
+		this.em = entityManager;
+	}
 
 	public void iniciarTransacao() {
-		em = JpaUtil.createEntityManager();
+		JpaUtil.initFactory();
+		em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
 	}
 
