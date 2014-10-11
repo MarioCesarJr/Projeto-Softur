@@ -2,9 +2,9 @@ package softur.validadores;
 
 public class ValidadorCPF {
 	
-/*	public static void main(String[] args) {
+public static void main(String[] args) {
         System.out.println(validaCPF("833.853.878-76"));
-}*/
+}
 
 public static String retiraCaracteresInvalidos(String cpf) {
         return cpf.replaceAll("\\D", "");
