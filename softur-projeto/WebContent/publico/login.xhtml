@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>Softur Login</title>
+	<link rel="icon" href="#{resource['img/airplane.ico']}"></link>
+
+	<!-- Bootstrap core CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+
+</h:head>
+
+<h:body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-panel panel panel-default"
+					style="margin-top: 129px;">
+					<div class="panel-heading">
+						<h3 class="panel-title">Login</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form">
+							<fieldset>
+								<div class="form-group">
+									<h:inputText value="" class="form-control" pt:placeholder="E-mail" />
+								</div>
+								<div class="form-group">
+								    <h:inputSecret value="" class="form-control" pt:placeholder="Senha"/>
+                                </div>
+								<!-- Change this to a button or input when using this as a form -->
+								<a href="..//restrito/admin.xhtml" class="btn btn-lg btn-primary btn-block">Entrar</a>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</h:body>
+</html>
