@@ -1,4 +1,4 @@
-package softur.dao;
+package softur.repository.infra;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,9 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
-import softur.entities.Funcionario;
 import softur.entities.Servicos;
-import softur.util.JpaUtil;
 
 public class ServicosDAO implements Serializable {
 	
@@ -20,22 +18,6 @@ public class ServicosDAO implements Serializable {
 		this.em = entityManager;
 	}
 
-	//Abrir transacao Servicos
-	public void iniciarTransacao() {
-		JpaUtil.initFactory();
-		em = JpaUtil.getEntityManager();
-		em.getTransaction().begin();
-	}
-
-	//Confirma transacao Servicos
-	public void confirmarTransacao() {
-		em.getTransaction().commit();
-	}
-
-	public void fecharTransacao() {
-		em.close();
-		JpaUtil.closeFactory();
-	}
 
 	//Salva Servicos
 	public void salvarServicos(Servicos servicos) {
