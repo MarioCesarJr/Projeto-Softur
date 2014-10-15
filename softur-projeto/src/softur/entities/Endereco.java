@@ -31,21 +31,16 @@ public class Endereco implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
 	private String estado;
 
-	@Column(nullable = false)
 	private String cidade;
 
-	@Column(nullable = false)
 	private String cep;
 
-	@Column(nullable = false)
 	private String rua;
 
 	private String numero;
 
-	@Column(nullable = false)
 	private String pais;
 
 	private String complemento;
