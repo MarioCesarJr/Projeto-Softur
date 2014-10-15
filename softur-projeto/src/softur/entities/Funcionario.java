@@ -1,7 +1,7 @@
 package softur.entities;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,16 +25,15 @@ public class Funcionario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 60, nullable = false, name = "nome_funcionario")
+	@Column(length = 60, name = "nome_funcionario")
 	private String nome;
 
 	// tratar se for estrangeiro
 	private String cpf;
 
-	@Column(length = 11, nullable = false)
+	@Column(length = 11)
 	private String telefone;
 
-	@Column(nullable = false)
 	private String email;
 
 	@ManyToOne
@@ -42,13 +41,11 @@ public class Funcionario implements Serializable {
 	private Cargo cargo;
 
 	@Temporal(TemporalType.DATE)
-	@Column(nullable = false)
-	private Calendar dataAdmissao;
+	private Date dataAdmissao;
 
-	@Column(nullable = false)
 	private Double salario;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cod_endereco")
 	private Endereco endereco;
 
@@ -105,12 +102,12 @@ public class Funcionario implements Serializable {
 		this.cargo = cargo;
 	}
 
-	public Calendar getDataEntrada() {
+	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataEntrada(Calendar dataEntrada) {
-		this.dataAdmissao = dataEntrada;
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
 	}
 
 	public Double getSalario() {
@@ -129,13 +126,12 @@ public class Funcionario implements Serializable {
 		this.endereco = endereco;
 	}
 
-
-	public String getObservacao() {
+	public String getComplemento() {
 		return complemento;
 	}
 
-	public void setObservacao(String observacao) {
-		this.complemento = observacao;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	public String getNumeroCNH() {

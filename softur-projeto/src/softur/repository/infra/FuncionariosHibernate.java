@@ -22,10 +22,13 @@ public class FuncionariosHibernate implements Funcionarios {
 		this.em = entityManager;
 	}
 
+	@Override
 	public void salvar(Funcionario funcionario) {
 		em.persist(funcionario);
+		
 	}
 
+	@Override
 	public void deletar(Funcionario funcionario) {
 		funcionario = buscarId(funcionario.getId());
 		try {
@@ -34,13 +37,16 @@ public class FuncionariosHibernate implements Funcionarios {
 		} catch (PersistenceException e) {
 			e.getMessage();
 		}
-
+		
 	}
 
+	@Override
 	public void atualizar(Funcionario funcionario) {
 		em.merge(funcionario);
+		
 	}
 
+	@Override
 	public Funcionario buscarId(Long codigo) {
 		Funcionario funcionario = em.find(Funcionario.class, codigo);
 		if (funcionario != null) {
@@ -51,8 +57,10 @@ public class FuncionariosHibernate implements Funcionarios {
 	}
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public List<Funcionario> listarTodos() {
 		return em.createQuery("from Funcionario").getResultList();
 	}
-
+	
+	
 }

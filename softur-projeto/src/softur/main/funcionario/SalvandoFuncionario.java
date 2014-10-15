@@ -33,7 +33,7 @@ public class SalvandoFuncionario {
 		
 		Calendar dataEntrada = Calendar.getInstance();
 		dataEntrada.set(2010, 8, 21);
-		funcionario.setDataEntrada(dataEntrada);
+//		funcionario.setDataAdmissao(dataEntrada);
 				
 		funcionario.setEmail("ciclano@gmail.com");
 		

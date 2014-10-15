@@ -15,13 +15,13 @@
 
 						<div class="col-md-8">
 							<label>Nome</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.nome}" styleClass="form-control" />
 						</div>
 
 
 						<div class="col-md-4">
 							<label>CPF</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" />
 						</div>
 
 					</div>
@@ -30,12 +30,12 @@
 
 						<div class="col-md-4">
 							<label>Telefone</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" />
 						</div>
 
 						<div class="col-md-8">
 							<label>E-mail</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.email}" styleClass="form-control" />
 						</div>
 
 					</div>
@@ -44,16 +44,19 @@
 
 						<div class="col-md-4">
 							<label>Data de Admissão</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" >
+							    <f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:inputText>
 						</div>
 
 						<div class="col-md-4">
 							<label>Salário</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.salario}" styleClass="form-control" />
 						</div>
 
 						<div class="col-md-4">
-							<label>Cargo</label> <select class="form-control">
+							<label>Cargo</label> 
+							<select class="form-control">
 								<option>Selecione...</option>
 								<option>Motorista</option>
 								<option>Gerente</option>
@@ -63,7 +66,7 @@
 					</div>
                         
                         <label>Número CNH</label>
-						<h:inputText value="" styleClass="form-control" />
+						<h:inputText value="#{funcionariosBean.funcionario.numeroCNH}" styleClass="form-control" />
                         
                         					
 						<label>Endereço</label>
@@ -104,9 +107,9 @@
 					
 					<div class="form-group">
 						<label>Complemento</label>
-						<h:inputTextarea value="" styleClass="form-control" />
+						<h:inputTextarea value="#{funcionariosBean.funcionario.complemento}" styleClass="form-control" />
 					</div>
-					<h:commandButton value="Salvar" styleClass="btn btn-theme" />
+					<h:commandButton value="Salvar" styleClass="btn btn-theme" action="#{funcionariosBean.salvar}" />
 				</h:form>
 			</div>
 

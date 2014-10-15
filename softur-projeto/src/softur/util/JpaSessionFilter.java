@@ -30,6 +30,8 @@ public class JpaSessionFilter implements Filter {
 			
 			entityManager.getTransaction().begin();
 			
+			request.setAttribute("entityManager", entityManager);
+			
 			chain.doFilter(request, response);
 			
 			entityManager.getTransaction().commit();

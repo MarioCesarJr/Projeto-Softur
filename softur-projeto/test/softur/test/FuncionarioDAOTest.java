@@ -29,7 +29,7 @@ public class FuncionarioDAOTest extends DBUnitTest{
 		f.setCpf("05894987898");
 		Calendar dataEntrada = Calendar.getInstance();
 		dataEntrada.set(2010, 8, 21);
-		f.setDataEntrada(dataEntrada);
+	//	f.setDataAdmissao(dataEntrada);
 				
 		f.setEmail("ciclano@gmail.com");
 		
