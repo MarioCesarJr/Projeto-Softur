@@ -4,11 +4,11 @@ import java.util.Calendar;
 
 import javax.persistence.EntityManager;
 
-import softur.dao.CargoDAO;
-import softur.dao.FuncionarioDAO;
 import softur.entities.Cargo;
 import softur.entities.Endereco;
 import softur.entities.Funcionario;
+import softur.repository.infra.CargoDAO;
+import softur.repository.infra.FuncionariosHibernate;
 
 public class SalvandoFuncionario {
 
@@ -34,26 +34,13 @@ public class SalvandoFuncionario {
 		Calendar dataEntrada = Calendar.getInstance();
 		dataEntrada.set(2010, 8, 21);
 		funcionario.setDataEntrada(dataEntrada);
-		
-		Calendar dataSaida = Calendar.getInstance();
-		dataEntrada.set(2013, 9, 11);
-		funcionario.setDataSaida(dataSaida);
-		
+				
 		funcionario.setEmail("ciclano@gmail.com");
 		
 		funcionario.setTelefone("22282828");
 		
 		funcionario.setSalario(2000d);
 		
-		cDao.iniciarTransacao();
-		cDao.salvarCargo(cargo);
-		cDao.confirmarTransacao();
-
-		FuncionarioDAO dao = new FuncionarioDAO(em);
-		dao.iniciarTransacao();
-		dao.salvarFuncionario(funcionario);
-		dao.confirmarTransacao();
-		
-		dao.fecharTransacao();
+		FuncionariosHibernate dao = new FuncionariosHibernate(em);
 	}
 }

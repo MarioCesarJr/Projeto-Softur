@@ -2,9 +2,9 @@ package softur.main.funcionario;
 
 import javax.persistence.EntityManager;
 
-import softur.dao.FrotaDAO;
-import softur.dao.FuncionarioDAO;
 import softur.entities.Frota;
+import softur.repository.infra.FrotaDAO;
+import softur.repository.infra.FuncionariosHibernate;
 
 public class SalvandoFrota {
 
@@ -22,11 +22,6 @@ public class SalvandoFrota {
 		frota.setPoltronas(30);
 
 		FrotaDAO dao = new FrotaDAO(em);
-		dao.iniciarTransacao();
-		dao.salvarFrota(frota);
-		dao.confirmarTransacao();
-
-		dao.fecharTransacao();
 	}
 
 }

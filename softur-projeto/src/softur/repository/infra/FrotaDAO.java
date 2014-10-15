@@ -1,4 +1,4 @@
-package softur.dao;
+package softur.repository.infra;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,7 +8,6 @@ import javax.persistence.PersistenceException;
 
 import softur.entities.Frota;
 import softur.entities.Funcionario;
-import softur.util.JpaUtil;
 
 public class FrotaDAO implements Serializable{
 	
@@ -19,22 +18,7 @@ private EntityManager em;
 	public FrotaDAO(EntityManager entityManager){
 		this.em = entityManager;
 	}
-	
-	public void iniciarTransacao() {
-		JpaUtil.initFactory();
-		em = JpaUtil.getEntityManager();
-		em.getTransaction().begin();
-	}
-
-	public void confirmarTransacao() {
-		em.getTransaction().commit();
-	}
-
-	public void fecharTransacao() {
-		em.close();
-		JpaUtil.closeFactory();
-	}
-	
+		
 	public void salvarFrota(Frota frota) {
 		em.persist(frota);
 	}

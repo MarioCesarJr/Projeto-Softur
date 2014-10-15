@@ -43,10 +43,7 @@ public class Funcionario implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)
-	private Calendar dataEntrada;
-
-	@Temporal(TemporalType.DATE)
-	private Calendar dataSaida;
+	private Calendar dataAdmissao;
 
 	@Column(nullable = false)
 	private Double salario;
@@ -55,10 +52,8 @@ public class Funcionario implements Serializable {
 	@JoinColumn(name = "cod_endereco")
 	private Endereco endereco;
 
-	private String status;
-
 	@Lob
-	private String observacao;
+	private String complemento;
 
 	private String numeroCNH;
 
@@ -111,19 +106,11 @@ public class Funcionario implements Serializable {
 	}
 
 	public Calendar getDataEntrada() {
-		return dataEntrada;
+		return dataAdmissao;
 	}
 
 	public void setDataEntrada(Calendar dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-
-	public Calendar getDataSaida() {
-		return dataSaida;
-	}
-
-	public void setDataSaida(Calendar dataSaida) {
-		this.dataSaida = dataSaida;
+		this.dataAdmissao = dataEntrada;
 	}
 
 	public Double getSalario() {
@@ -142,20 +129,13 @@ public class Funcionario implements Serializable {
 		this.endereco = endereco;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	public String getObservacao() {
-		return observacao;
+		return complemento;
 	}
 
 	public void setObservacao(String observacao) {
-		this.observacao = observacao;
+		this.complemento = observacao;
 	}
 
 	public String getNumeroCNH() {
@@ -165,14 +145,6 @@ public class Funcionario implements Serializable {
 	public void setNumeroCNH(String numeroCNH) {
 		this.numeroCNH = numeroCNH;
 	}
-	
-	public static boolean limiteCaractere(String nome){
-		if(nome.length() > 30){
-			return false;
-		}
-		return true;
-	}
-	
 
 	@Override
 	public int hashCode() {

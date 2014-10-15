@@ -11,14 +11,14 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 
-import softur.dao.CargoDAO;
-import softur.dao.FuncionarioDAO;
+import softur.repository.infra.CargoDAO;
+import softur.repository.infra.FuncionariosHibernate;
 import softur.util.JpaUtil;
 
 public class DBUnitTest extends DBTestCase {
 	
 	private EntityManager entityManager;
-	public FuncionarioDAO funcionarioDao;
+	public FuncionariosHibernate funcionarioDao;
 	public CargoDAO cargoDao;
 
 	
@@ -47,10 +47,10 @@ public class DBUnitTest extends DBTestCase {
 		
 	public void begin(){
 		JpaUtil.initFactory();
-		entityManager = JpaUtil.getEntityManager();
+		entityManager = JpaUtil.createEntityManager();
 		entityManager.getTransaction().begin();
 		cargoDao = new CargoDAO(entityManager);	
-		funcionarioDao = new FuncionarioDAO(entityManager);
+		funcionarioDao = new FuncionariosHibernate(entityManager);
 	}
 	
 	public void close(){

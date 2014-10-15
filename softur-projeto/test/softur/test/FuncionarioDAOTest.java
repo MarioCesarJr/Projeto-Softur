@@ -30,11 +30,7 @@ public class FuncionarioDAOTest extends DBUnitTest{
 		Calendar dataEntrada = Calendar.getInstance();
 		dataEntrada.set(2010, 8, 21);
 		f.setDataEntrada(dataEntrada);
-		
-		Calendar dataSaida = Calendar.getInstance();
-		dataEntrada.set(2013, 9, 11);
-		f.setDataSaida(dataSaida);
-		
+				
 		f.setEmail("ciclano@gmail.com");
 		
 		f.setTelefone("22282828");
@@ -45,7 +41,7 @@ public class FuncionarioDAOTest extends DBUnitTest{
 		f.setCargo(cargo);
 		f.setSalario(2000d);
 		cargoDao.salvarCargo(cargo);
-		funcionarioDao.salvarFuncionario(f);
+		funcionarioDao.salvar(f);
 	
 	
 	}

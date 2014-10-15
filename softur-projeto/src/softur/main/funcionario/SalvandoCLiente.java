@@ -4,9 +4,9 @@ import java.util.Calendar;
 
 import javax.persistence.EntityManager;
 
-import softur.dao.ClienteDao;
 import softur.entities.Cliente;
 import softur.entities.Endereco;
+import softur.repository.infra.ClienteDao;
 
 public class SalvandoCLiente {
 
@@ -27,11 +27,6 @@ public class SalvandoCLiente {
 		cliente.setDataCadastro(dataCad);
 		
 		
-		ClienteDao cDao = new ClienteDao(em);
-		cDao.iniciarTransacao();
-		cDao.salvarCliente(cliente);
-		cDao.confirmarTransacao();
-		cDao.fecharTransacao();
 
 	}
 }
