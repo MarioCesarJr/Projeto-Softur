@@ -36,11 +36,10 @@ public class FuncionarioDAOTest extends DBUnitTest{
 		f.setTelefone("22282828");
 		
 		
- 	   Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil", "");
+ 	   Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil");
 		f.setEndereco(endereco);
 		f.setCargo(cargo);
 		f.setSalario(2000d);
-		cargoDao.salvarCargo(cargo);
 		funcionarioDao.salvar(f);
 	
 	

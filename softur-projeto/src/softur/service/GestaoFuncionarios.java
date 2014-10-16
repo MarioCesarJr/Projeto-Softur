@@ -3,6 +3,11 @@ package softur.service;
 import softur.entities.Funcionario;
 import softur.repository.Funcionarios;
 
+/**
+ ***********************************************************
+ * CLASSE RESPONSAVEL PELA REGRA DE NEGOCIO DO FUNCIONARIO
+ ***********************************************************
+ */
 public class GestaoFuncionarios {
 
 	private Funcionarios funcionarios;
@@ -11,7 +16,17 @@ public class GestaoFuncionarios {
 		this.funcionarios = funcionarios;
 	}
 	
-	public void salvar(Funcionario funcionario){
+	public void salvar(Funcionario funcionario) throws RegraNegocioException{
+		if(existeNomeIgual(funcionario)){
+			throw new RegraNegocioException("Já existe um nome igual a este.");
+		}
+		
 		this.funcionarios.salvar(funcionario);
 	}
+	
+	private boolean existeNomeIgual(Funcionario funcionario) {
+		Funcionario nomeIgual = this.funcionarios.comDadosIguais(funcionario);
+		return nomeIgual != null && !nomeIgual.equals(funcionario);
+	}
+
 }

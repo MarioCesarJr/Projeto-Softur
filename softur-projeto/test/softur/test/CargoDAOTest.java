@@ -21,7 +21,7 @@ public class CargoDAOTest extends DBUnitTest {
 	private void gravaCargo() {
 		Cargo cargo = new Cargo();
 		cargo.setNomeCargo("Motorista");
-		cargoDao.salvarCargo(cargo);
+
 		
 		
 	}

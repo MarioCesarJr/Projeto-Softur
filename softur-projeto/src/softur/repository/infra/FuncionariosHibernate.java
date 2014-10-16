@@ -5,6 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
 import softur.entities.Funcionario;
 import softur.repository.Funcionarios;
 
@@ -60,6 +64,14 @@ public class FuncionariosHibernate implements Funcionarios {
 	@Override
 	public List<Funcionario> listarTodos() {
 		return em.createQuery("from Funcionario").getResultList();
+	}
+
+	@Override
+	public Funcionario comDadosIguais(Funcionario funcionario) {
+		 Session session = em.unwrap(Session.class);
+		 Criteria criteria = session.createCriteria(Funcionario.class)
+		 .add(Restrictions.eq("nome", funcionario.getNome()));
+		 return (Funcionario) criteria.uniqueResult();
 	}
 	
 	

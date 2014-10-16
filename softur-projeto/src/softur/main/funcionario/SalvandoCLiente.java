@@ -14,7 +14,7 @@ public class SalvandoCLiente {
 		EntityManager em = null;
 		
 		Endereco endereco = new Endereco("SC", "Florianopolis", "88095580",
-				"Rua Eduardo Horn", "186", "Brasil", "");
+				"Rua Eduardo Horn", "186", "Brasil");
 
 		Cliente cliente = new Cliente();
 		cliente.setCpf("00935041958");

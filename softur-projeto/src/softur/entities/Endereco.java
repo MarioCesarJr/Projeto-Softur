@@ -2,7 +2,6 @@ package softur.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,14 +16,13 @@ public class Endereco implements Serializable {
 
 	}
 
-	public Endereco(String estado, String cidade, String cep, String rua,String numero, String pais, String complemento) {
+	public Endereco(String estado, String cidade, String cep, String rua,String numero, String pais) {
 		this.estado = estado;
 		this.cidade = cidade;
 		this.cep = cep;
 		this.rua = rua;
 		this.numero = numero;
 		this.pais = pais;
-		this.complemento = complemento;
 	}
 
 	@Id
@@ -42,8 +40,6 @@ public class Endereco implements Serializable {
 	private String numero;
 
 	private String pais;
-
-	private String complemento;
 
 	public Long getId() {
 		return id;
@@ -99,14 +95,6 @@ public class Endereco implements Serializable {
 
 	public void setPais(String pais) {
 		this.pais = pais;
-	}
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
 	}
 
 	@Override

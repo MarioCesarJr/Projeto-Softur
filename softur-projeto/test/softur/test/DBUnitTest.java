@@ -11,7 +11,6 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 
-import softur.repository.infra.CargoDAO;
 import softur.repository.infra.FuncionariosHibernate;
 import softur.util.JpaUtil;
 
@@ -19,7 +18,6 @@ public class DBUnitTest extends DBTestCase {
 	
 	private EntityManager entityManager;
 	public FuncionariosHibernate funcionarioDao;
-	public CargoDAO cargoDao;
 
 	
 	public DBUnitTest() {
@@ -49,7 +47,7 @@ public class DBUnitTest extends DBTestCase {
 		JpaUtil.initFactory();
 		entityManager = JpaUtil.createEntityManager();
 		entityManager.getTransaction().begin();
-		cargoDao = new CargoDAO(entityManager);	
+	//	cargoDao = new CargoDAO(entityManager);	
 		funcionarioDao = new FuncionariosHibernate(entityManager);
 	}
 	
@@ -57,7 +55,7 @@ public class DBUnitTest extends DBTestCase {
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		entityManager = null;
-		cargoDao = null;
+	//	cargoDao = null;
 		JpaUtil.closeFactory();
 	}
 }

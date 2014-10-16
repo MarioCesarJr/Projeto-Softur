@@ -17,4 +17,5 @@ public interface Funcionarios {
 	public void atualizar(Funcionario funcionario);
 	public Funcionario buscarId(Long codigo);
 	public List<Funcionario> listarTodos();
+	public Funcionario comDadosIguais(Funcionario funcionario);
 }

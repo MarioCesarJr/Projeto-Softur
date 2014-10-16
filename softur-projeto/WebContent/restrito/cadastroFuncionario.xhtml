@@ -15,13 +15,15 @@
 
 						<div class="col-md-8">
 							<label>Nome</label>
-							<h:inputText value="#{funcionariosBean.funcionario.nome}" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.nome}" styleClass="form-control" 
+							required="true" label="Nome" size="60"/>
 						</div>
 
 
 						<div class="col-md-4">
 							<label>CPF</label>
-							<h:inputText value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" 
+							required="true" label="CPF" size="11"/>
 						</div>
 
 					</div>
@@ -30,12 +32,14 @@
 
 						<div class="col-md-4">
 							<label>Telefone</label>
-							<h:inputText value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" 
+							required="true" label="Telefone" size="12"/>
 						</div>
 
 						<div class="col-md-8">
 							<label>E-mail</label>
-							<h:inputText value="#{funcionariosBean.funcionario.email}" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.email}" styleClass="form-control" 
+							label="E-mail" size="50"/>
 						</div>
 
 					</div>
@@ -44,23 +48,27 @@
 
 						<div class="col-md-4">
 							<label>Data de Admissão</label>
-							<h:inputText value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" >
+							<h:inputText value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" 
+							required="true" label="Data de Admissão" size="12">
 							    <f:convertDateTime pattern="dd/MM/yyyy"/>
 							</h:inputText>
 						</div>
 
 						<div class="col-md-4">
 							<label>Salário</label>
-							<h:inputText value="#{funcionariosBean.funcionario.salario}" styleClass="form-control" />
+							<h:inputText value="#{funcionariosBean.funcionario.salario}" styleClass="form-control">
+							     <f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2"/>
+							     <f:validateDoubleRange minimum="0"/>
+							</h:inputText>
 						</div>
 
 						<div class="col-md-4">
-							<label>Cargo</label> 
-							<select class="form-control">
-								<option>Selecione...</option>
-								<option>Motorista</option>
-								<option>Gerente</option>
-							</select>
+							<label>Cargo</label>
+							<h:selectOneMenu value="#{funcionariosBean.funcionario.cargo.nomeCargo}" class="form-control">
+							    <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+							    <f:selectItems value="#{funcionariosBean.cargos}" var="cargo" itemValue="#{cargo}"
+							    itemLabel="#{cargo.nomeCargo}"/>
+							</h:selectOneMenu> 
 						</div>
 
 					</div>
@@ -70,18 +78,21 @@
                         
                         					
 						<label>Endereço</label>
-						<h:inputText value="#{funcionariosBean.funcionario.endereco.rua}" styleClass="form-control" pt:placeholder="Rua" />
+						<h:inputText value="#{funcionariosBean.funcionario.endereco.rua}" styleClass="form-control" 
+						pt:placeholder="Rua" required="true" label="Rua" size="60" />
 					
 					<div class="row">
 					
 					    <div class="col-md-6">
 					        <h:outputLabel value="" />
-                            <h:inputText value="#{funcionariosBean.funcionario.endereco.cidade}" styleClass="form-control" pt:placeholder="Cidade" />					    
+                            <h:inputText value="#{funcionariosBean.funcionario.endereco.cidade}" styleClass="form-control" 
+                            pt:placeholder="Cidade" required="true" size="50" label="Cidade"/>					    
 					    </div>
                         
                         <div class="col-md-6">
                             <h:outputLabel value="" />
-                            <h:inputText value="#{funcionariosBean.funcionario.endereco.estado}" styleClass="form-control" pt:placeholder="Estado" />					    
+                            <h:inputText value="#{funcionariosBean.funcionario.endereco.estado}" 
+                            styleClass="form-control" pt:placeholder="Estado" required="true" label="Estado" size="50"/>					    
 					    </div>
 										
 					</div>
@@ -90,24 +101,28 @@
 										     
 		                <div class="col-md-4">
 		                     <h:outputLabel value="" />
-                            <h:inputText value="#{funcionariosBean.funcionario.endereco.numero}" styleClass="form-control" pt:placeholder="Número" />					    
+                            <h:inputText value="#{funcionariosBean.funcionario.endereco.numero}" styleClass="form-control" 
+                            pt:placeholder="Número" required="true" label="Número" size="10"/>					    
 					    </div>
                         
                         <div class="col-md-4">
                             <h:outputLabel value="" />
-                            <h:inputText value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" pt:placeholder="CEP" />					    
+                            <h:inputText value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
+                            pt:placeholder="CEP" required="true" label="CEP" size="14"/>					    
 					    </div>
 					    
 					    <div class="col-md-4">
 					        <h:outputLabel value="" />
-                            <h:inputText value="#{funcionariosBean.funcionario.endereco.pais}" styleClass="form-control" pt:placeholder="País" />					    
+                            <h:inputText value="#{funcionariosBean.funcionario.endereco.pais}" styleClass="form-control" 
+                            pt:placeholder="País" required="true" label="País" size="25"/>					    
 					    </div>
 					    
 					</div>
 					
 					<div class="form-group">
 						<label>Complemento</label>
-						<h:inputTextarea value="#{funcionariosBean.funcionario.complemento}" styleClass="form-control" />
+						<h:inputTextarea value="#{funcionariosBean.funcionario.complemento}" styleClass="form-control" 
+						label="Complemento" />
 					</div>
 					<h:commandButton value="Salvar" styleClass="btn btn-theme" action="#{funcionariosBean.salvar}" />
 				</h:form>

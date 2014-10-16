@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import softur.entities.Cargo;
 import softur.entities.Endereco;
 import softur.entities.Funcionario;
-import softur.repository.infra.CargoDAO;
 import softur.repository.infra.FuncionariosHibernate;
 
 public class SalvandoFuncionario {
@@ -16,14 +15,14 @@ public class SalvandoFuncionario {
 
 		EntityManager em = null;
 		
-		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil", "");
+		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil");
 		
 		Funcionario funcionario = new Funcionario();
 		
 		funcionario.setNome("Ciclano da Silva");
 
 		Cargo cargo = new Cargo("Motorista");
-		CargoDAO cDao = new CargoDAO(em);
+
 		
 		funcionario.setCargo(cargo);
 		

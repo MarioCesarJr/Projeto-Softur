@@ -36,7 +36,7 @@ public class Funcionario implements Serializable {
 
 	private String email;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "cod_cargo")
 	private Cargo cargo;
 
