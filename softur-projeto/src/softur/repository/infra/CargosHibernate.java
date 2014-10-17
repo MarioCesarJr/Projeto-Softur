@@ -27,4 +27,10 @@ public class CargosHibernate implements Cargos {
 		
 	}
 
+	@Override
+	public Cargo buscarPorCodigo(Long codigo) {
+		Cargo cargo = em.find(Cargo.class, codigo);
+		return cargo;
+	}
+
 }

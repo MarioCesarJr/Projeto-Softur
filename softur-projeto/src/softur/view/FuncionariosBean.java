@@ -30,7 +30,6 @@ public class FuncionariosBean {
 		
 		funcionario = new Funcionario();
 		funcionario.setEndereco(new Endereco());
-		funcionario.setCargo(new Cargo());
 	}
 	
 	public String salvar(){

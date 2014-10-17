@@ -64,7 +64,7 @@
 
 						<div class="col-md-4">
 							<label>Cargo</label>
-							<h:selectOneMenu value="#{funcionariosBean.funcionario.cargo.nomeCargo}" class="form-control">
+							<h:selectOneMenu value="#{funcionariosBean.funcionario.cargo}" class="form-control">
 							    <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
 							    <f:selectItems value="#{funcionariosBean.cargos}" var="cargo" itemValue="#{cargo}"
 							    itemLabel="#{cargo.nomeCargo}"/>

@@ -8,4 +8,5 @@ public interface Cargos {
     
 	public void salvar(Cargo cargo);
 	public List<Cargo> listarTodos();
+	public Cargo buscarPorCodigo(Long codigo);
 }
