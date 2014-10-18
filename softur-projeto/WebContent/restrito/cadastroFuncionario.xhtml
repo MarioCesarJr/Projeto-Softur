@@ -8,11 +8,15 @@
 <ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
 
 	<ui:define name="content">
-		<div class="row">
+	 	<div class="row">
 			<div class="container-fluid">
 				<h:form role="form">
-					<div class="row">
-
+				  
+				   <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   style="list-style-type: none;"/>
+				    
+				    <div class="row">
+                          
 						<div class="col-md-8">
 							<label>Nome</label>
 							<h:inputText value="#{funcionariosBean.funcionario.nome}" styleClass="form-control" 
