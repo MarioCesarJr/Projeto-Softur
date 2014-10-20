@@ -28,7 +28,7 @@ public class FuncionariosHibernate implements Funcionarios {
 
 	@Override
 	public void salvar(Funcionario funcionario) {
-		em.persist(funcionario);
+		em.merge(funcionario);
 		
 	}
 

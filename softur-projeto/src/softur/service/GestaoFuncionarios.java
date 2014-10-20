@@ -28,5 +28,8 @@ public class GestaoFuncionarios {
 		Funcionario nomeIgual = this.funcionarios.comDadosIguais(funcionario);
 		return nomeIgual != null && !nomeIgual.equals(funcionario);
 	}
-
+    
+	public void excluir(Funcionario funcionario){
+		this.funcionarios.deletar(funcionario);
+	}
 }

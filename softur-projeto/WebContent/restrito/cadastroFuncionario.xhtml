@@ -5,6 +5,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
+     <f:metadata>
+          <f:viewParam name="codigo" value="#{funcionariosBean.funcionario}"/>
+     </f:metadata>
+
 <ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
 
 	<ui:define name="content">
@@ -128,7 +132,9 @@
 						<h:inputTextarea value="#{funcionariosBean.funcionario.complemento}" styleClass="form-control" 
 						label="Complemento" />
 					</div>
-					<h:commandButton value="Salvar" styleClass="btn btn-theme" action="#{funcionariosBean.salvar}" />
+					<h:commandButton value="Salvar" styleClass="btn btn-theme" action="#{funcionariosBean.salvar}" >
+					      <f:ajax execute="@form" render="@all"/>
+					</h:commandButton>
 				</h:form>
 			</div>
 

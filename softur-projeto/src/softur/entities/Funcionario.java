@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Funcionario implements Serializable {
+public class Funcionario implements Serializable,Cloneable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -165,5 +165,9 @@ public class Funcionario implements Serializable {
 			return false;
 		return true;
 	}
-
+  
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }

@@ -41,7 +41,7 @@ public class FuncionariosBean {
 			
 			this.funcionario = new Funcionario();
 			
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Cadastro efetuado com sucesso!");
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Funcionario salvo com sucesso!");
 		
 		} catch (RegraNegocioException e) {
 			
@@ -54,6 +54,18 @@ public class FuncionariosBean {
 
 	public Funcionario getFuncionario() {
 		return funcionario;
+	}
+	
+	// Quando salvar não retornar nulo
+	public void setFuncionario(Funcionario funcionario) throws CloneNotSupportedException {
+		this.funcionario = funcionario;
+		if(this.funcionario == null){
+			this.funcionario = new Funcionario();
+			this.funcionario.setEndereco(new Endereco());
+		}else{
+			// evitar erro quando for atualizar um dado ja existente devido a restricao de nomes iguais
+			this.funcionario = (Funcionario)funcionario.clone();
+		}
 	}
 
 	public List<Cargo> getCargos() {
