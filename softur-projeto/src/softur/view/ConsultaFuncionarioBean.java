@@ -26,9 +26,10 @@ public class ConsultaFuncionarioBean {
 		this.funcionarios = funcionarios.listarTodos();
 	}
 	
-	public void excluir(){
+	public String excluir(){
 	    GestaoFuncionarios gestaoFuncionarios = new GestaoFuncionarios(this.repositorios.getFuncionarios());
 	    gestaoFuncionarios.excluir(this.funcionarioSelecionado);
+	    return "";
 	}
 	
 	public List<Funcionario> getFuncionarios() {
