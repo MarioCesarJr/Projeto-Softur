@@ -3,6 +3,7 @@ package softur.repository.infra;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 
 import softur.entities.Cargo;
 import softur.repository.Cargos;
@@ -31,6 +32,19 @@ public class CargosHibernate implements Cargos {
 	public Cargo buscarPorCodigo(Long codigo) {
 		Cargo cargo = em.find(Cargo.class, codigo);
 		return cargo;
+	}
+
+	@Override
+	public void deletar(Cargo cargo) {
+		cargo = buscarPorCodigo(cargo.getId());
+		try {
+			em.remove(cargo);
+			em.flush();
+		} catch (PersistenceException e) {
+			e.getMessage();
+		}
+		
+		
 	}
 
 }

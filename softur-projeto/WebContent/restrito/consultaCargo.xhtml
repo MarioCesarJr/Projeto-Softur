@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
+
+	<ui:define name="content">
+		<div class="row">
+			<div class="container-fluid">
+              
+              <h:form>
+				<h:dataTable styleClass="table" var="cargo" value="#{consultaCargoBean.cargos}"
+				  >
+				    
+				    <h:column>
+						<f:facet name="header">
+							Codigo
+						</f:facet>
+						
+						<h:outputText value="#{cargo.id}"/>
+					</h:column>
+				    
+					<h:column>
+						<f:facet name="header">
+							Nome Cargo
+						</f:facet>
+						
+						<h:outputText value="#{cargo.nomeCargo}"/>
+		            </h:column>
+		 
+		  <!--      <h:column>     <<<<<<< FUNCIONARIO VINCULADO AO CARGO >>>>>>>>
+				    
+                            <h:commandLink action="#{consultaCargoBean.excluir}" style="color:red;">
+		                        <span class="glyphicon glyphicon-remove-circle"></span>
+		                        <f:setPropertyActionListener target="#{consultaCargoBean.cargoSelecionado}" 
+		                        value="#{cargo}"/>
+		                        <f:ajax render="@form"/>
+		                    </h:commandLink>    
+                    </h:column>   -->                    
+				</h:dataTable>
+              </h:form>				
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+</html>
