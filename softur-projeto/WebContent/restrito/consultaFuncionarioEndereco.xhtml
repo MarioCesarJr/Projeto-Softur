@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
 
 <ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
 
@@ -32,52 +32,50 @@
 				
                     <h:column>
 						<f:facet name="header">
-							Cargo
+							Rua
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.cargo.nomeCargo}"/>
+						<h:outputText value="#{funcionario.endereco.rua}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
-							Data Admissão
+							Número
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.dataAdmissao}"/>
+						<h:outputText value="#{funcionario.endereco.numero}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
-							Salário
+							Cidade
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.salario}">
-						     <f:convertNumber locale="pt_BR" currencySymbol="R$" type="currency"/>
-						</h:outputText>
+						<h:outputText value="#{funcionario.endereco.cidade}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
-							Telefone
+							Estado
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.telefone}"/>
+						<h:outputText value="#{funcionario.endereco.estado}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
-							CPF
+							CEP
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.cpf}"/>
+						<h:outputText value="#{funcionario.endereco.cep}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">
-							E-mail
+							País
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.email}"/>
+						<h:outputText value="#{funcionario.endereco.pais}"/>
 					</h:column>
 					
                     

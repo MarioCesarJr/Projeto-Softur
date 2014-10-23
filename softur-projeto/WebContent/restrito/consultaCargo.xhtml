@@ -30,15 +30,14 @@
 						<h:outputText value="#{cargo.nomeCargo}"/>
 		            </h:column>
 		 
-		  <!--      <h:column>     <<<<<<< FUNCIONARIO VINCULADO AO CARGO >>>>>>>>
-				    
-                            <h:commandLink action="#{consultaCargoBean.excluir}" style="color:red;">
+		            <h:column>  
+		                    <h:commandLink action="#{consultaCargoBean.excluir}" style="color:red;">
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
 		                        <f:setPropertyActionListener target="#{consultaCargoBean.cargoSelecionado}" 
 		                        value="#{cargo}"/>
 		                        <f:ajax render="@form"/>
 		                    </h:commandLink>    
-                    </h:column>   -->                    
+                    </h:column>                       
 				</h:dataTable>
               </h:form>				
 			</div>

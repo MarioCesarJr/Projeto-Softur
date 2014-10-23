@@ -3,6 +3,7 @@ package softur.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Cargo implements Serializable {
 	@Column(name = "nome_cargo")
 	private String nomeCargo;
 
-	@OneToMany(mappedBy = "cargo")
+	@OneToMany(mappedBy = "cargo",cascade=CascadeType.ALL)
 	private List<Funcionario> funcionarios;
 
 	public Long getId() {
