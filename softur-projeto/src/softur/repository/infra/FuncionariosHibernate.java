@@ -70,7 +70,8 @@ public class FuncionariosHibernate implements Funcionarios {
 	public Funcionario comDadosIguais(Funcionario funcionario) {
 		 Session session = em.unwrap(Session.class);
 		 Criteria criteria = session.createCriteria(Funcionario.class)
-		 .add(Restrictions.eq("nome", funcionario.getNome()));
+		 .add(Restrictions.eq("nome", funcionario.getNome()))
+		 .add(Restrictions.eq("cpf", funcionario.getCpf()));
 		 return (Funcionario) criteria.uniqueResult();
 	}
 	

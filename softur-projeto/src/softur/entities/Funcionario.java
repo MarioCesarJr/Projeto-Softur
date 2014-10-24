@@ -35,7 +35,7 @@ public class Funcionario implements Serializable,Cloneable {
 
 	private String email;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "cod_cargo")
 	private Cargo cargo;
 

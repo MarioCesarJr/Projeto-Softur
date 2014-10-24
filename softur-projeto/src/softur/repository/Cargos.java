@@ -10,4 +10,5 @@ public interface Cargos {
 	public List<Cargo> listarTodos();
 	public Cargo buscarPorCodigo(Long codigo);
 	public void deletar(Cargo cargo);
+    public Cargo cargoIgual(Cargo cargo);	
 }

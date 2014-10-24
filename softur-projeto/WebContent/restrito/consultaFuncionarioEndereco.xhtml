@@ -84,13 +84,7 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <f:param name="codigo" value="#{funcionario.id}"/>
                             </h:link>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                    <h:commandLink action="#{consultaFuncionarioBean.excluir}" style="color:red;">
-		                        <span class="glyphicon glyphicon-remove-circle"></span>
-		                        <f:setPropertyActionListener target="#{consultaFuncionarioBean.funcionarioSelecionado}" 
-		                        value="#{funcionario}"/>
-		                        <f:ajax render="@form"/>
-		                    </h:commandLink>    
+                                
                     </h:column>                    
 				</h:dataTable>
               </h:form>				

@@ -43,7 +43,9 @@
 							Data Admissão
 						</f:facet>
 						
-						<h:outputText value="#{funcionario.dataAdmissao}"/>
+						<h:outputText value="#{funcionario.dataAdmissao}">
+						    <f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:outputText>
 					</h:column>
 					
 					<h:column>

@@ -5,6 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
 import softur.entities.Cargo;
 import softur.repository.Cargos;
 
@@ -45,6 +49,14 @@ public class CargosHibernate implements Cargos {
 		}
 		
 		
+	}
+
+	@Override
+	public Cargo cargoIgual(Cargo cargo) {
+		Session session = em.unwrap(Session.class);
+		Criteria criteria = session.createCriteria(Cargo.class)
+		.add(Restrictions.eq("nomeCargo", cargo.getNomeCargo()));		
+		return (Cargo) criteria.uniqueResult();
 	}
 
 }

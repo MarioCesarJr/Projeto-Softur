@@ -28,8 +28,10 @@ public class ConsultaCargoBean {
 	 * FUNCIONARIO VINCULADO AO CARGO
 	 ******************************************************************/
 	public String excluir(){
-		GestaoCargos gestaoCargos = new GestaoCargos(this.repositorios.getCargos());
+		GestaoCargos gestaoCargos = new GestaoCargos(this.repositorios.getCargos());			
+			
 		gestaoCargos.excluir(this.cargoSelecionado);
+			
 		return "";
 	}
 

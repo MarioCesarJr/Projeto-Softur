@@ -10,7 +10,10 @@
 		<div class="row">
 			<div class="container-fluid">
               
-              <h:form>
+              <h:form id="form">
+                 <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   style="list-style-type: none;"/>
+              
 				<h:dataTable styleClass="table" var="cargo" value="#{consultaCargoBean.cargos}"
 				  >
 				    
@@ -35,7 +38,7 @@
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
 		                        <f:setPropertyActionListener target="#{consultaCargoBean.cargoSelecionado}" 
 		                        value="#{cargo}"/>
-		                        <f:ajax render="@form"/>
+		                        <f:ajax render="form" />
 		                    </h:commandLink>    
                     </h:column>                       
 				</h:dataTable>

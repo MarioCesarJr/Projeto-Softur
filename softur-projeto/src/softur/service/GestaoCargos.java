@@ -12,11 +12,22 @@ public class GestaoCargos {
 		
 	}
 	
-	public void salvar(Cargo cargo){
+	public void salvar(Cargo cargo) throws RegraNegocioException{
+		if(existeCargoIgual(cargo)){
+			throw new RegraNegocioException("Já existe um cargo igual a este.");
+		}
 		this.cargos.salvar(cargo);
 	}
 	
-	public void excluir(Cargo cargo){
-		this.cargos.deletar(cargo);
+	public void excluir(Cargo cargo) {
+	
+			this.cargos.deletar(cargo);	
+		
 	}
+	
+	private boolean existeCargoIgual(Cargo cargo){
+		Cargo cargoIgual = this.cargos.cargoIgual(cargo);
+		return cargoIgual != null && !cargoIgual.equals(cargo);
+	}
+	
 }
