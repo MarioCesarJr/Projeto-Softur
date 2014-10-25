@@ -89,7 +89,8 @@
                                 <f:param name="codigo" value="#{funcionario.id}"/>
                             </h:link>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                    <h:commandLink action="#{consultaFuncionarioBean.excluir}" style="color:red;">
+		                    <h:commandLink action="#{consultaFuncionarioBean.excluir}" style="color:red;"
+		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
 		                        <f:setPropertyActionListener target="#{consultaFuncionarioBean.funcionarioSelecionado}" 
 		                        value="#{funcionario}"/>

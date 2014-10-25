@@ -34,15 +34,17 @@
 		            </h:column>
 		 
 		            <h:column>  
-		                    <h:commandLink action="#{consultaCargoBean.excluir}" style="color:red;">
+		                    <h:commandLink action="#{consultaCargoBean.excluir}" style="color:red;"
+		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
 		                        <f:setPropertyActionListener target="#{consultaCargoBean.cargoSelecionado}" 
 		                        value="#{cargo}"/>
-		                        <f:ajax render="form" />
+		                        <f:ajax render="@form" />
 		                    </h:commandLink>    
                     </h:column>                       
 				</h:dataTable>
-              </h:form>				
+              </h:form>
+              				
 			</div>
 		</div>
 

@@ -31,7 +31,8 @@ public class ConsultaCargoBean {
 		GestaoCargos gestaoCargos = new GestaoCargos(this.repositorios.getCargos());			
 			
 		gestaoCargos.excluir(this.cargoSelecionado);
-			
+		
+		this.init();// ATUALIZA A PAGINA IMEDIATAMENTE APÓS A EXCLUSÃO
 		return "";
 	}
 
