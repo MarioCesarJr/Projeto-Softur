@@ -1,9 +1,9 @@
 package softur.service;
 
 import softur.entities.Cliente;
-import softur.entities.Funcionario;
+
 import softur.repository.Clientes;
-import softur.repository.Funcionarios;
+
 
 public class GestaoClientes {
 	private Clientes clientes;
