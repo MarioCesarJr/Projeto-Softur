@@ -14,7 +14,7 @@
 	<ui:define name="content">
 	 	<div class="row">
 			<div class="container-fluid">
-				<h:form role="form">
+				<h:form role="form" prependId="false">
 				 				    
 				    <div class="row">
                           
@@ -27,8 +27,8 @@
 
 						<div class="col-md-4">
 							<label>CPF</label>
-							<h:inputText value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" 
-							required="true" label="CPF" size="11"/>
+							<h:inputText id="cpf" value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" 
+							required="true" label="CPF" />
 						</div>
 
 					</div>
@@ -38,7 +38,7 @@
 						<div class="col-md-4">
 							<label>Telefone</label>
 							<h:inputText value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" 
-							required="true" label="Telefone" size="12"/>
+							required="true" label="Telefone" />
 						</div>
 
 						<div class="col-md-8">
@@ -53,15 +53,15 @@
 
 						<div class="col-md-4">
 							<label>Data de Admissão</label>
-							<h:inputText value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" 
-							required="true" label="Data de Admissão" size="12">
+							<h:inputText id="data" value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" 
+							required="true" label="Data de Admissão" >
 							    <f:convertDateTime pattern="dd/MM/yyyy"/>
 							</h:inputText>
 						</div>
 
 						<div class="col-md-4">
 							<label>Salário</label>
-							<h:inputText value="#{funcionariosBean.funcionario.salario}" styleClass="form-control">
+							<h:inputText id="salario" value="#{funcionariosBean.funcionario.salario}" styleClass="form-control">
 							     <f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2"/>
 							     <f:validateDoubleRange minimum="0"/>
 							</h:inputText>
@@ -112,8 +112,8 @@
                         
                         <div class="col-md-4">
                             <h:outputLabel value="" />
-                            <h:inputText value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
-                            pt:placeholder="CEP" required="true" label="CEP" size="14"/>					    
+                            <h:inputText id="cep" value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
+                            pt:placeholder="CEP" required="true" label="CEP" />					    
 					    </div>
 					    
 					    <div class="col-md-4">
