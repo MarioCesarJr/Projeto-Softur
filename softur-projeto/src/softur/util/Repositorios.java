@@ -5,8 +5,10 @@ import java.io.Serializable;
 import javax.persistence.EntityManager;
 
 import softur.repository.Cargos;
+import softur.repository.Clientes;
 import softur.repository.Funcionarios;
 import softur.repository.infra.CargosHibernate;
+import softur.repository.infra.ClienteHibernate;
 import softur.repository.infra.FuncionariosHibernate;
 
 public class Repositorios implements Serializable {
@@ -19,6 +21,9 @@ public class Repositorios implements Serializable {
 	
 	public Cargos getCargos(){
 		return new CargosHibernate(this.getEntityManager());
+	}
+	public Clientes getClientes(){
+		return new ClienteHibernate(this.getEntityManager());
 	}
 
 	private EntityManager getEntityManager(){
