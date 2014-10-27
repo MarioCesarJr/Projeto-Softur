@@ -30,7 +30,6 @@ public class Funcionario implements Serializable,Cloneable {
 	// tratar se for estrangeiro
 	private String cpf;
 
-	@Column(length = 11)
 	private String telefone;
 
 	private String email;

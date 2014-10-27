@@ -37,14 +37,14 @@
 
 						<div class="col-md-4">
 							<label>Telefone</label>
-							<h:inputText value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" 
+							<h:inputText id="telefone" value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" 
 							required="true" label="Telefone" />
 						</div>
 
 						<div class="col-md-8">
 							<label>E-mail</label>
 							<h:inputText value="#{funcionariosBean.funcionario.email}" styleClass="form-control" 
-							label="E-mail" size="50"/>
+							label="E-mail" size="50" pt:placeholder="nome@exemplo.com"/>
 						</div>
 
 					</div>
@@ -80,8 +80,7 @@
                         
                         <label>Número CNH</label>
 						<h:inputText value="#{funcionariosBean.funcionario.numeroCNH}" styleClass="form-control" />
-                        
-                        					
+                                             					
 						<label>Endereço</label>
 						<h:inputText value="#{funcionariosBean.funcionario.endereco.rua}" styleClass="form-control" 
 						pt:placeholder="Rua" required="true" label="Rua" size="60" />
@@ -119,7 +118,7 @@
 					    <div class="col-md-4">
 					        <h:outputLabel value="" />
                             <h:inputText value="#{funcionariosBean.funcionario.endereco.pais}" styleClass="form-control" 
-                            pt:placeholder="País" required="true" label="País" size="25"/>					    
+                            pt:placeholder="Nacionalidade" required="true" label="País" size="25"/>					    
 					    </div>
 					    
 					</div>

@@ -11,8 +11,7 @@
 			<div class="container-fluid">
               
               <h:form>
-				<h:dataTable styleClass="table" var="funcionario" value="#{consultaFuncionarioBean.funcionarios}"
-				  >
+				<h:dataTable styleClass="table" var="funcionario" value="#{consultaFuncionarioBean.funcionarios}">
 				    
 				    <h:column>
 						<f:facet name="header">
@@ -72,6 +71,14 @@
 						</f:facet>
 						
 						<h:outputText value="#{funcionario.cpf}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							CNH
+						</f:facet>
+						
+						<h:outputText value="#{funcionario.numeroCNH}"/>
 					</h:column>
 					
 					<h:column>
