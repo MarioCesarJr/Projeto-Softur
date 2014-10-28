@@ -15,7 +15,7 @@ public class SalvandoFuncionario {
 
 		EntityManager em = null;
 		
-		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "Brasil");
+		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "estreito", "Brasil");
 		
 		Funcionario funcionario = new Funcionario();
 		

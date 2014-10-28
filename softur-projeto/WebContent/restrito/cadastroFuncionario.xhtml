@@ -82,8 +82,19 @@
 						<h:inputText value="#{funcionariosBean.funcionario.numeroCNH}" styleClass="form-control" />
                                              					
 						<label>Endereço</label>
-						<h:inputText value="#{funcionariosBean.funcionario.endereco.rua}" styleClass="form-control" 
-						pt:placeholder="Rua" required="true" label="Rua" size="60" />
+					<div class="row">	
+							
+						<div class="col-md-6">	
+							<h:inputText id="cep" value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
+							pt:placeholder="CEP" required="true" label="CEP" size="60" />
+						</div>
+						
+						<div class="col-md-6">	
+							<h:inputText value="#{funcionariosBean.funcionario.endereco.bairro}" styleClass="form-control" 
+							pt:placeholder="Bairro" required="true" label="bairro" size="60" />
+						</div>
+						
+					</div>	
 					
 					<div class="row">
 					
@@ -111,8 +122,8 @@
                         
                         <div class="col-md-4">
                             <h:outputLabel value="" />
-                            <h:inputText id="cep" value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
-                            pt:placeholder="CEP" required="true" label="CEP" />					    
+                            <h:inputText value="#{funcionariosBean.funcionario.endereco.rua}" styleClass="form-control" 
+                            pt:placeholder="Rua" required="true" label="Rua" />					    
 					    </div>
 					    
 					    <div class="col-md-4">
