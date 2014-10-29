@@ -13,17 +13,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Consulta Cargo</title>
+<link rel="stylesheet" href="../resources/css/jquery.dataTables.css">
 <script src="../resources/js/jquery.js"></script>
 <script src="../resources/js/jquery.dataTables.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#tabela').dataTable();
+		$('#tabela').dataTable( {
+	        "language": {
+	            "lengthMenu": "Exibindo _MENU_ registros por página",
+	            "zeroRecords": "Nada encontrado !",
+	            "info": "Mostrando página _PAGE_ de _PAGES_",
+	            "infoEmpty": "Há registros disponíveis",
+	            "infoFiltered": "(filtrou-se o total de _MAX_ registros)",
+		        "sSearch": "Buscar:",
+		        "oPaginate":{
+                         "sFirst": "Primeiro",
+                         "sPrevious": "Anterior",
+                         "sNext": "Seguinte",
+                         "sLast": "Último"
+			        }    
+	        },
+
+             "sPaginationType": "full_numbers"
+	    } );
+			
 	});
 </script>
 </head>
 <body>
-	<table id="tabela">
+	<table id="tabela" class="display">
 		<thead>
 			<tr>
 				<th>Codigo</th>
