@@ -1,4 +1,4 @@
-<%@page import="softur.repository.infra.CargosHibernate"%>
+<%@page import="softur.repository.Cargos"%>
 <%@page import="softur.util.JpaUtil"%>
 <%@page import="javax.persistence.EntityManager"%>
 <%@page import="softur.entities.Cargo"%>
@@ -74,8 +74,8 @@ body {
 					EntityManager manager = JpaUtil.createEntityManager();
 
 					try {
-						CargosHibernate cargosHibernate = new CargosHibernate(manager);
-						List<Cargo> cargosList = cargosHibernate.listarTodos();
+						Cargos cargos = new Cargos(manager);
+						List<Cargo> cargosList = cargos.listarTodos();
 				%>
 
 				<%

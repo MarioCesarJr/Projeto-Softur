@@ -1,4 +1,4 @@
-package softur.repository.infra;
+package softur.repository;
 
 import java.util.List;
 
@@ -9,25 +9,23 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import softur.entities.Veiculo;
 
-import softur.entities.Frota;
-import softur.repository.Frotas;
-
-public class FrotaHibernate implements Frotas{
+public class Veiculos{
 private EntityManager em;
 	
-	public FrotaHibernate(EntityManager entityManager){
+	public Veiculos(EntityManager entityManager){
 		this.em = entityManager;
 	}
 
-	@Override
-	public void salvar(Frota frota) {
+	
+	public void salvar(Veiculo frota) {
 		em.merge(frota);
 		
 	}
 
-	@Override
-	public void deletar(Frota frota) {
+	
+	public void deletar(Veiculo frota) {
 		frota = buscarId(frota.getId());
 		try {
 			em.remove(frota);
@@ -38,15 +36,14 @@ private EntityManager em;
 		
 	}
 
-	@Override
-	public void atualizar(Frota frota) {
+	
+	public void atualizar(Veiculo frota) {
 		em.merge(frota);
 		
 	}
 
-	@Override
-	public Frota buscarId(Long codigo) {
-		Frota frota = em.find(Frota.class, codigo);
+	public Veiculo buscarId(Long codigo) {
+		Veiculo frota = em.find(Veiculo.class, codigo);
 		if (frota != null) {
 			return frota;
 		}
@@ -55,18 +52,16 @@ private EntityManager em;
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
-	public List<Frota> listarTodos() {
+	public List<Veiculo> listarTodos() {
 		return em.createQuery("from Cliente").getResultList();
 	}
 
-	@Override
-	public Frota comDadosIguais(Frota frota) {
+	public Veiculo comDadosIguais(Veiculo frota) {
 		 Session session = em.unwrap(Session.class);
-		 Criteria criteria = session.createCriteria(Frota.class)
+		 Criteria criteria = session.createCriteria(Veiculo.class)
 		 .add(Restrictions.eq("placa", frota.getPlaca()))
 		 .add(Restrictions.eq("chassi", frota.getChassi()));
-		 return (Frota) criteria.uniqueResult();
+		 return (Veiculo) criteria.uniqueResult();
 	}
 	
 	

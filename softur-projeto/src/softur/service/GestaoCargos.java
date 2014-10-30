@@ -5,12 +5,7 @@ import softur.repository.Cargos;
 
 public class GestaoCargos {
 
-	private Cargos cargos;
-	
-	public GestaoCargos(Cargos cargos){
-		this.cargos = cargos;
-		
-	}
+	private Cargos cargos = new Cargos();
 	
 	public void salvar(Cargo cargo) throws RegraNegocioException{
 		if(existeCargoIgual(cargo)){

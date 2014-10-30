@@ -3,18 +3,9 @@ package softur.service;
 import softur.entities.Funcionario;
 import softur.repository.Funcionarios;
 
-/**
- ***********************************************************
- * CLASSE RESPONSAVEL PELA REGRA DE NEGOCIO DO FUNCIONARIO
- ***********************************************************
- */
 public class GestaoFuncionarios {
 
-	private Funcionarios funcionarios;
-	
-	public GestaoFuncionarios(Funcionarios funcionarios){
-		this.funcionarios = funcionarios;
-	}
+	private Funcionarios funcionarios = new Funcionarios();
 	
 	public void salvar(Funcionario funcionario) throws RegraNegocioException{
 		if(existeNomeIgual(funcionario)){

@@ -7,16 +7,14 @@ import softur.entities.Cargo;
 import softur.service.GestaoCargos;
 import softur.service.RegraNegocioException;
 import softur.util.FacesUtil;
-import softur.util.Repositorios;
 
 @ManagedBean
 public class CadastroCargoBean {
 
-	private Repositorios repositorios = new Repositorios();
 	private Cargo cargo = new Cargo();
 
 	public String salvar() {
-		GestaoCargos gestaoCargos = new GestaoCargos(this.repositorios.getCargos());
+		GestaoCargos gestaoCargos = new GestaoCargos();
 		try {
 			
 			gestaoCargos.salvar(cargo);

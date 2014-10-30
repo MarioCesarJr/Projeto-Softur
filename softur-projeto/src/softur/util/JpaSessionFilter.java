@@ -11,12 +11,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-/**
- ************************************************************************* 
- * CLASSE RESPONSAVEL POR ABRIR E FECHAR TRANSACOES COM O BANCO DE DADOS 
- *************************************************************************
- */
-
 @WebFilter(servletNames = { "Faces Servlet" })
 public class JpaSessionFilter implements Filter {
 
@@ -25,18 +19,20 @@ public class JpaSessionFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		
 		EntityManager entityManager = JpaUtil.createEntityManager();
-	
+
+		JpaUtil.setEntityManager(request, entityManager);
+		
 		try {
 			
 			entityManager.getTransaction().begin();
-			
-			request.setAttribute("entityManager", entityManager);
 			
 			chain.doFilter(request, response);
 			
 			entityManager.getTransaction().commit();
 		
 		} catch (Exception exception) {
+			
+			if (entityManager.getTransaction().isActive())
 			
 			entityManager.getTransaction().rollback();
 		

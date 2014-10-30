@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import softur.entities.Cargo;
 import softur.entities.Endereco;
 import softur.entities.Funcionario;
-import softur.repository.infra.FuncionariosHibernate;
+import softur.repository.Funcionarios;
 
 public class SalvandoFuncionario {
 
@@ -40,6 +40,6 @@ public class SalvandoFuncionario {
 		
 		funcionario.setSalario(2000d);
 		
-		FuncionariosHibernate dao = new FuncionariosHibernate(em);
+		Funcionarios dao = new Funcionarios();
 	}
 }

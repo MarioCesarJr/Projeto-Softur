@@ -1,6 +1,5 @@
 package softur.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,35 +8,33 @@ import javax.faces.bean.ManagedBean;
 import softur.entities.Cargo;
 import softur.repository.Cargos;
 import softur.service.GestaoCargos;
-import softur.util.Repositorios;
 
 @ManagedBean
 public class ConsultaCargoBean {
 
-	private Repositorios repositorios = new Repositorios();
-	private List<Cargo> cargos = new ArrayList<Cargo>();
+	private List<Cargo> cargosList;
 	private Cargo cargoSelecionado;
 	
 	@PostConstruct
 	public void init(){
-		Cargos cargos = this.repositorios.getCargos();
-		this.cargos = cargos.listarTodos();
+		Cargos cargos = new Cargos();
+		this.cargosList = cargos.listarTodos();
 	}
 	
 	/*****************************************************************
 	 * FUNCIONARIO VINCULADO AO CARGO
 	 ******************************************************************/
 	public String excluir(){
-		GestaoCargos gestaoCargos = new GestaoCargos(this.repositorios.getCargos());			
+		GestaoCargos gestaoCargos = new GestaoCargos();			
 			
 		gestaoCargos.excluir(this.cargoSelecionado);
 		
-		this.init();// ATUALIZA A PAGINA IMEDIATAMENTE APÓS A EXCLUSÃO
+		this.init();
 		return "";
 	}
 
 	public List<Cargo> getCargos() {
-		return cargos;
+		return cargosList;
 	}
 
 	public Cargo getCargoSelecionado() {

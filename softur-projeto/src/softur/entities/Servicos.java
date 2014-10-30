@@ -22,7 +22,7 @@ public class Servicos implements Serializable {
 	private Double preco;
 	
 	@Column( nullable = false)
-	private Frota veiculo;
+	private Veiculo veiculo;
 	
 	@Column( nullable = false)
 	private Cidade cidadeOrigem;
@@ -51,11 +51,11 @@ public class Servicos implements Serializable {
 		this.preco = preco;
 	}
 
-	public Frota getVeiculo() {
+	public Veiculo getVeiculo() {
 		return veiculo;
 	}
 
-	public void setVeiculo(Frota veiculo) {
+	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
 	}
 

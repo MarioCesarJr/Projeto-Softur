@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 
 import softur.entities.Cargo;
-import softur.util.FacesUtil;
+import softur.util.JpaUtil;
 
 @FacesConverter(forClass=Cargo.class)
 public class CargoConverter implements Converter{
@@ -19,7 +19,7 @@ public class CargoConverter implements Converter{
 		Cargo retorno = null;
 		
 		if(value != null){
-			EntityManager entityManager = (EntityManager) FacesUtil.getRequestAttribute("entityManager");
+			EntityManager entityManager = JpaUtil.getEntityManager();
 			Session session = entityManager.unwrap(Session.class);
 			retorno = (Cargo) session.get(Cargo.class, new Long(value));
 		}

@@ -2,9 +2,7 @@ package softur.main.funcionario;
 
 import javax.persistence.EntityManager;
 
-import softur.entities.Frota;
-import softur.repository.infra.FrotaDAO;
-import softur.repository.infra.FuncionariosHibernate;
+import softur.entities.Veiculo;
 
 public class SalvandoFrota {
 
@@ -12,7 +10,7 @@ public class SalvandoFrota {
 
 		EntityManager em = null;
 
-		Frota frota = new Frota();
+		Veiculo frota = new Veiculo();
 
 		frota.setMarca("Volvo");
 		frota.setModelo("B215LH");
@@ -21,7 +19,7 @@ public class SalvandoFrota {
 		frota.setChassi("9BWZZZ377VT004251");
 		frota.setPoltronas(30);
 
-		FrotaDAO dao = new FrotaDAO(em);
+		
 	}
 
 }

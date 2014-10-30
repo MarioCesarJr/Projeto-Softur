@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 
 import softur.entities.Cliente;
 import softur.entities.Endereco;
-import softur.repository.infra.ClienteDao;
 
 public class SalvandoCLiente {
 

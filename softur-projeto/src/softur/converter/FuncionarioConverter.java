@@ -9,26 +9,21 @@ import javax.faces.convert.FacesConverter;
 
 import softur.entities.Funcionario;
 import softur.repository.Funcionarios;
-import softur.util.Repositorios;
 
 @FacesConverter(forClass=Funcionario.class)
 public class FuncionarioConverter implements Converter {
-
-	private Repositorios repositoriosBean = new Repositorios();
 	
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 	   Funcionario retorno = null;
-	   Funcionarios funcionarios = this.repositoriosBean.getFuncionarios();
+	   Funcionarios funcionarios = new Funcionarios();
 	   
 	   if(value != null && !value.equals("")){
 		   retorno = funcionarios.buscarId(new Long(value));
 		   
 		   if(retorno == null){
 			   String descricaoErro = "Funcionario não existe";
-			   FacesMessage message = new FacesMessage(
-						FacesMessage.SEVERITY_ERROR, descricaoErro,
-						descricaoErro);
+			   FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, descricaoErro, descricaoErro);
 				throw new ConverterException(message);
 		   }
 	   }

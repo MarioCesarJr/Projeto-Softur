@@ -1,6 +1,5 @@
 package softur.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -14,26 +13,24 @@ import softur.repository.Cargos;
 import softur.service.GestaoFuncionarios;
 import softur.service.RegraNegocioException;
 import softur.util.FacesUtil;
-import softur.util.Repositorios;
 
 @ManagedBean
 public class FuncionariosBean {
 
-	private Repositorios repositorios = new Repositorios();
-	private List<Cargo> cargos = new ArrayList<Cargo>();
+	private List<Cargo> cargosList;
 	private Funcionario funcionario;
 	
 	@PostConstruct
 	public void init(){
-		Cargos cargos = this.repositorios.getCargos();
-		this.cargos = cargos.listarTodos();
+		Cargos cargosHibernate = new Cargos();
+		this.cargosList = cargosHibernate.listarTodos();
 		
 		funcionario = new Funcionario();
 		funcionario.setEndereco(new Endereco());
 	}
 	
 	public String salvar(){
-		GestaoFuncionarios gestaoFuncionarios = new GestaoFuncionarios(this.repositorios.getFuncionarios());
+		GestaoFuncionarios gestaoFuncionarios = new GestaoFuncionarios();
 		
 		try {
 			
@@ -69,7 +66,7 @@ public class FuncionariosBean {
 	}
 
 	public List<Cargo> getCargos() {
-		return cargos;
+		return cargosList;
 	}
 	
 	
