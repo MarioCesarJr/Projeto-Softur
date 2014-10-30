@@ -1,4 +1,4 @@
-package softur.testUnitario.validadorCaractere;
+package softur.test.junit;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package softur.testUnitario.validadorCPF;
+package softur.test.junit;
 
 
 

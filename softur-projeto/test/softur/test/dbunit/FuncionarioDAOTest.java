@@ -1,4 +1,4 @@
-package softur.test;
+package softur.test.dbunit;
 
 import java.io.File;
 import java.io.FileInputStream;
