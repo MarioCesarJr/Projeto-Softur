@@ -15,6 +15,10 @@ import softur.util.JpaUtil;
 public class Funcionarios {
 
 	private EntityManager em;
+
+	public Funcionarios(EntityManager entityManager){
+		this.em = entityManager;
+	}
 	
 	public Funcionarios(){
 		this.em = JpaUtil.getEntityManager();
