@@ -3,11 +3,14 @@ package softur.view;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.persistence.PersistenceException;
 
 import softur.entities.Cargo;
 import softur.repository.Cargos;
 import softur.service.GestaoCargos;
+import softur.util.FacesUtil;
 
 @ManagedBean
 public class ConsultaCargoBean {
@@ -22,14 +25,19 @@ public class ConsultaCargoBean {
 	}
 	
 	/*****************************************************************
-	 * FUNCIONARIO VINCULADO AO CARGO
+	 * FUNCIONARIO VINCULADO AO CARGO ! Lançando Excessão
 	 ******************************************************************/
 	public String excluir(){
 		GestaoCargos gestaoCargos = new GestaoCargos();			
 			
-		gestaoCargos.excluir(this.cargoSelecionado);
+		try{
 		
+		gestaoCargos.excluir(this.cargoSelecionado);
 		this.init();
+		
+		}catch(PersistenceException p){
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Existe Funcionario ocupando este Cargo !");
+		}
 		return "";
 	}
 
