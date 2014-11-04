@@ -3,10 +3,12 @@ package softur.test.junit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +17,7 @@ import org.junit.Test;
 
 import softur.entities.Cliente;
 import softur.entities.Endereco;
+import softur.entities.Funcionario;
 import softur.repository.Clientes;
 
 
@@ -67,4 +70,28 @@ public class RepositoryClienteTest {
 		c.setTelefone("4830257623");
 	}
 	
+	@Test
+	public void testBuscaPorCodigo(){
+		Cliente clienteEnt = clienteRep.buscarId(1L);
+		System.out.println(clienteEnt.getNome());
+	}
+	
+	@Test
+	public void testListarTodos(){
+		List<Cliente> clientesList = clienteRep.listarTodos();
+		for (Cliente clienteEnt : clientesList) {
+			System.out.println(clienteEnt.getNome());
+		}
+	}
+	
+	@Test
+	public void testDeletar(){
+		Cliente clienteEnt = clienteRep.buscarId(1L);
+		try{
+			clienteRep.deletar(clienteEnt);
+		}catch(PersistenceException e){
+          e.getMessage();
+	}
+
+	}
 }
