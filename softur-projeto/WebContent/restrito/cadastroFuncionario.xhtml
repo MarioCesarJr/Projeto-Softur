@@ -21,14 +21,16 @@
 						<div class="col-md-8">
 							<label>Nome</label>
 							<h:inputText value="#{funcionariosBean.funcionario.nome}" styleClass="form-control" 
-							required="true" label="Nome" size="60"/>
+							 label="Nome" size="60"/>
 						</div>
 
 
 						<div class="col-md-4">
 							<label>CPF</label>
 							<h:inputText id="cpf" value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" 
-							required="true" label="CPF" />
+							required="true" label="CPF" >
+							    <f:validator validatorId="validarCPF"/>
+							</h:inputText>
 						</div>
 
 					</div>
@@ -38,7 +40,7 @@
 						<div class="col-md-4">
 							<label>Telefone</label>
 							<h:inputText id="telefone" value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" 
-							required="true" label="Telefone" />
+						     label="Telefone" />
 						</div>
 
 						<div class="col-md-8">
@@ -54,7 +56,7 @@
 						<div class="col-md-4">
 							<label>Data de Admissão</label>
 							<h:inputText id="data" value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" 
-							required="true" label="Data de Admissão" >
+							 label="Data de Admissão" >
 							    <f:convertDateTime pattern="dd/MM/yyyy"/>
 							</h:inputText>
 						</div>
@@ -86,12 +88,12 @@
 							
 						<div class="col-md-6">	
 							<h:inputText id="cep" value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
-							pt:placeholder="CEP" required="true" label="CEP" size="60" />
+							pt:placeholder="CEP"  label="CEP" size="60" />
 						</div>
 						
 						<div class="col-md-6">	
 							<h:inputText value="#{funcionariosBean.funcionario.endereco.bairro}" styleClass="form-control" 
-							pt:placeholder="Bairro" required="true" label="bairro" size="60" />
+							pt:placeholder="Bairro" label="bairro" size="60" />
 						</div>
 						
 					</div>	
@@ -101,13 +103,13 @@
 					    <div class="col-md-6">
 					        <h:outputLabel value="" />
                             <h:inputText value="#{funcionariosBean.funcionario.endereco.cidade}" styleClass="form-control" 
-                            pt:placeholder="Cidade" required="true" size="50" label="Cidade"/>					    
+                            pt:placeholder="Cidade" size="50" label="Cidade"/>					    
 					    </div>
                         
                         <div class="col-md-6">
                             <h:outputLabel value="" />
                             <h:inputText value="#{funcionariosBean.funcionario.endereco.estado}" 
-                            styleClass="form-control" pt:placeholder="Estado" required="true" label="Estado" size="50"/>					    
+                            styleClass="form-control" pt:placeholder="Estado" label="Estado" size="50"/>					    
 					    </div>
 										
 					</div>
@@ -117,19 +119,19 @@
 		                <div class="col-md-4">
 		                     <h:outputLabel value="" />
                             <h:inputText value="#{funcionariosBean.funcionario.endereco.numero}" styleClass="form-control" 
-                            pt:placeholder="Número" required="true" label="Número" size="10"/>					    
+                            pt:placeholder="Número" label="Número" size="10"/>					    
 					    </div>
                         
                         <div class="col-md-4">
                             <h:outputLabel value="" />
                             <h:inputText value="#{funcionariosBean.funcionario.endereco.rua}" styleClass="form-control" 
-                            pt:placeholder="Rua" required="true" label="Rua" />					    
+                            pt:placeholder="Rua"  label="Rua" />					    
 					    </div>
 					    
 					    <div class="col-md-4">
 					        <h:outputLabel value="" />
                             <h:inputText value="#{funcionariosBean.funcionario.endereco.pais}" styleClass="form-control" 
-                            pt:placeholder="Nacionalidade" required="true" label="País" size="25"/>					    
+                            pt:placeholder="Nacionalidade" label="País" size="25"/>					    
 					    </div>
 					    
 					</div>
