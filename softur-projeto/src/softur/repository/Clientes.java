@@ -10,13 +10,18 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import softur.entities.Cliente;
+import softur.util.JpaUtil;
 
 public class Clientes {
 	
-private EntityManager em;
-	
+	private EntityManager em;
+
 	public Clientes(EntityManager entityManager){
 		this.em = entityManager;
+	}
+	
+	public Clientes(){
+		this.em = JpaUtil.getEntityManager();
 	}
 
 
