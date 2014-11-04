@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import softur.entities.Cliente;
+import softur.entities.Funcionario;
 import softur.util.JpaUtil;
 
 public class Clientes {
@@ -71,6 +72,7 @@ public class Clientes {
 		 .add(Restrictions.eq("cpf", cliente.getCpf()));
 		 return (Cliente) criteria.uniqueResult();
 	}
+  
+	 
 	
-
 }
