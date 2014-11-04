@@ -30,21 +30,21 @@
                     <h:form role="form">
 						  <div class="form-group">
 							<label>Nome</label>
-							<h:inputText value="" styleClass="form-control"/>
+							<h:inputText value="#{contatoMB.nome}" styleClass="form-control"/>
 						  </div>
 						  <div class="form-group">
 							<label>Email</label>
-							<h:inputText value="" styleClass="form-control" />
+							<h:inputText value="#{contatoMB.email}" styleClass="form-control" />
 						  </div>
 						  <div class="form-group">
 							<label>Assunto</label>
-							<h:inputText value="" styleClass="form-control"/>
+							<h:inputText value="#{contatoMB.assunto}" styleClass="form-control"/>
 						  </div>
 						  <div class="form-group">
 							<label>Mensagem</label>
-							<h:inputTextarea value="" styleClass="form-control"/>
+							<h:inputTextarea value="#{contatoMB.mensagem}" styleClass="form-control"/>
 						  </div>
-						  <h:commandButton value="Enviar" styleClass="btn btn-theme" />
+						  <h:commandButton value="Enviar" styleClass="btn btn-theme" action="#{contatoMB.enviar}"/>
 					</h:form>
 			  </div>		
 					<div class="col-lg-4">

@@ -14,8 +14,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import softur.entities.Veiculo;
-
 import softur.repository.Veiculos;
+
+
 
 public class RepositoryVeiculoTest {
 
@@ -47,7 +48,7 @@ public class RepositoryVeiculoTest {
 		veiculo.setBanheiro(true);
 		veiculo.setPoltronas(40);
 		veiculo.setMarca("Mercedes");
-		veiculo.setModelo("Ônibus");
+		veiculo.setModelo("ï¿½nibus");
 		veiculo.setPlaca("MAR-4578");
 		veiculo.setChassi("8S89R841TY20U");
 		veiculos.salvar(veiculo);
