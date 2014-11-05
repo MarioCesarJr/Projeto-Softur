@@ -3,7 +3,9 @@ package softur.test.dbunit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.SQLException;
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.dbunit.Assertion;
 import org.dbunit.dataset.IDataSet;
@@ -22,25 +24,47 @@ public class FuncionarioDAOTest extends DBUnitTest{
 	}
 	
 	private void gravaFuncionario(){
-		Funcionario f = new Funcionario();
-		Cargo cargo = new Cargo("Motorista");
+        
+		Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21", "estreito", "Brasil");
 		
-		f.setNome("Joao da silva");
-		f.setCpf("05894987898");
-		Calendar dataEntrada = Calendar.getInstance();
-		dataEntrada.set(2010, 8, 21);
-	//	f.setDataAdmissao(dataEntrada);
+		Cargo cargo = new Cargo();
+		
+		cargo.setNomeCargo("Motorista");
+		
+		cargos.salvar(cargo);
+		
+		Funcionario funcionario = new Funcionario();
+		
+		funcionario.setCargo(cargo);
+		
+		funcionario.setNome("Ciclano da Silva");
+		
+		funcionario.setCpf("05894987898");
+		
+		funcionario.setComplemento("complemento");
+		
+		funcionario.setNumeroCNH("22222232");
+		
+		funcionario.setEndereco(endereco);
+		
+        Date data = new Date();
+		SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			data = formatarData.parse("11/12/2012");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		funcionario.setDataAdmissao(data);
 				
-		f.setEmail("ciclano@gmail.com");
+		funcionario.setEmail("ciclano@gmail.com");
 		
-		f.setTelefone("22282828");
+		funcionario.setTelefone("22282828");
 		
-		
- 	   Endereco endereco = new Endereco("SC", "Florianopolis", "88786098", "Rua Motta da Silva", "21"," capoeiras", "Brasil");
-		f.setEndereco(endereco);
-		f.setCargo(cargo);
-		f.setSalario(2000d);
-		funcionarioDao.salvar(f);
+		funcionario.setSalario(2000d);
+
+		funcionarios.salvar(funcionario);
 	
 	
 	}
