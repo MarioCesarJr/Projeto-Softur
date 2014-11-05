@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-     <funcionario id="1" cpf="05894987898" dataEntrada="2010, 8, 21" dataSaida="2013, 9, 11" email="ciclano@gmail.com"
-     nome_funcionario="Joao da silva" salario="2000" telefone="22282828"  cod_cargo="1" cod_endereco="1"/>
+     <funcionario id="1" complemento="complemento" cpf="05894987898" dataAdmissao="2012-12-11" email="ciclano@gmail.com" 
+     nome_funcionario="Ciclano da Silva" numeroCNH="22222232" salario="2000" telefone="22282828" cod_cargo="1" cod_endereco="1"/>
 </dataset>

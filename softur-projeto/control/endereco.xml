@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>  
-  <endereco id="1" estado="SC" cidade="Florianopolis" cep="88786098" rua="Rua Motta da Silva" numero="21" pais="Brasil" 
-     cod_funcionario="1"/>
+  <endereco id="1" estado="SC" cidade="Florianopolis" cep="88786098" rua="Rua Motta da Silva" numero="21" bairro="estreito"
+   pais="Brasil" cod_funcionario="1"/>
 </dataset>

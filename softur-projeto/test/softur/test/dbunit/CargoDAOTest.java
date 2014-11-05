@@ -22,9 +22,7 @@ public class CargoDAOTest extends DBUnitTest {
 		Cargo cargo = new Cargo();
 		cargo.setNomeCargo("Motorista");
 
-		
-		
-	}
+		}
 
 	@Test
 	public void testCargoDao() throws SQLException, Exception {

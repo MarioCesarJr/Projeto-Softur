@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
@@ -11,20 +13,21 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 
+import softur.repository.Cargos;
 import softur.repository.Funcionarios;
-import softur.util.JpaUtil;
 
 public class DBUnitTest extends DBTestCase {
 	
+	private static EntityManagerFactory factory;
 	private EntityManager entityManager;
-	public Funcionarios funcionarioDao;
-
+	public Funcionarios funcionarios;
+    public Cargos cargos;
 	
 	public DBUnitTest() {
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://localhost/softur_db");
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "root");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "host");
 		
 	}
 
@@ -35,27 +38,28 @@ public class DBUnitTest extends DBTestCase {
 	
 	@Override
 	protected DatabaseOperation getSetUpOperation() throws Exception{ 
-		return DatabaseOperation.CLEAN_INSERT;
+		return DatabaseOperation.INSERT;
 	}
 
+	
     @Override
     protected DatabaseOperation getTearDownOperation() throws Exception {
-    	return DatabaseOperation.DELETE_ALL;
+    	return DatabaseOperation.NONE;
     }	
 		
 	public void begin(){
-		JpaUtil.initFactory();
-		entityManager = JpaUtil.createEntityManager();
-		entityManager.getTransaction().begin();
-	//	cargoDao = new CargoDAO(entityManager);	
-		funcionarioDao = new Funcionarios();
+		factory = Persistence.createEntityManagerFactory("softurPU");
+		this.entityManager = factory.createEntityManager();
+		funcionarios = new Funcionarios(entityManager);
+		cargos = new Cargos(entityManager);
+		entityManager.getTransaction().begin();	
+		
 	}
 	
 	public void close(){
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		entityManager = null;
-	//	cargoDao = null;
-		JpaUtil.closeFactory();
+	    factory.close();
 	}
 }
