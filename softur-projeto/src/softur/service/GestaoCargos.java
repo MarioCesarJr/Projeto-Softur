@@ -12,13 +12,7 @@ public class GestaoCargos {
 			throw new RegraNegocioException("Já existe um cargo igual a este.");
 		}
 		
-		if(cargo.getNomeCargo() == null || cargo.getNomeCargo().equals("")){
-			throw new RegraNegocioException("O campo cargo é obrigatório.");
-		}
-		
-		if(cargo.getNomeCargo().length() > 35) {
-			throw new RegraNegocioException("É permitido somente 35 caracteres.");
-		}
+		validarCampos(cargo);
 		
 		this.cargos.salvar(cargo);
 	}
@@ -32,6 +26,19 @@ public class GestaoCargos {
 	private boolean existeCargoIgual(Cargo cargo){
 		Cargo cargoIgual = this.cargos.cargoIgual(cargo);
 		return cargoIgual != null && !cargoIgual.equals(cargo);
+	}
+	
+	private void validarCampos(Cargo cargo) throws RegraNegocioException{
+		if(cargo.getNomeCargo() == null || cargo.getNomeCargo().equals("")){
+			
+			throw new RegraNegocioException("O campo cargo é obrigatório.");
+		}
+		
+		if(cargo.getNomeCargo().length() > 35) {
+			
+			throw new RegraNegocioException("É permitido no máximo 35 caracteres.");
+		}
+	
 	}
 	
 }

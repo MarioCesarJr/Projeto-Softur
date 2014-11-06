@@ -12,6 +12,8 @@ public class GestaoFuncionarios {
 			throw new RegraNegocioException("Existe Funcionario com CPF igual a este.");
 		}
 		
+		validarCampos(funcionario);
+		
 		this.funcionarios.salvar(funcionario);
 	}
 	
@@ -23,4 +25,20 @@ public class GestaoFuncionarios {
 	public void excluir(Funcionario funcionario){
 		this.funcionarios.deletar(funcionario);
 	}
+	
+	private void validarCampos(Funcionario funcionario) throws RegraNegocioException{
+		if(funcionario.getNome() == null || funcionario.getNome().equals("")){
+			throw new RegraNegocioException("O campo nome é obrigatório");
+		
+		}else if(funcionario.getCpf() == null || funcionario.getCpf().equals("")){
+			throw new RegraNegocioException("O campo CPF é obrigatório");
+	
+		}else if(funcionario.getDataAdmissao() == null || funcionario.getDataAdmissao().equals("")){
+			throw new RegraNegocioException("O campo Data de Admissão é obrigatório");
+	
+		}else if(funcionario.getSalario() == null || funcionario.getSalario().equals("")){
+			throw new RegraNegocioException("O campo salário é obrigatório");
+     }
+	
+  }	
 }
