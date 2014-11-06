@@ -17,7 +17,6 @@ import org.junit.Test;
 
 import softur.entities.Cliente;
 import softur.entities.Endereco;
-import softur.entities.Funcionario;
 import softur.repository.Clientes;
 
 
@@ -49,7 +48,7 @@ public class RepositoryClienteTest {
 	@Test
 	public void testSalvar(){
 		
-		Endereco endereco = new Endereco("SP", "São Paulo", "34786088",
+		Endereco endereco = new Endereco("SP", "Sï¿½o Paulo", "34786088",
 				"Rua Tita Dentes", "28", "Ipiranga", "Brasil");
 		
 		Cliente c = new Cliente();

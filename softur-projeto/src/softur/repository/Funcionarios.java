@@ -59,10 +59,9 @@ public class Funcionarios {
 		return em.createQuery("from Funcionario").getResultList();
 	}
 
-	public Funcionario comDadosIguais(Funcionario funcionario) {
+	public Funcionario comCpfIgual(Funcionario funcionario) {
 		 Session session = em.unwrap(Session.class);
 		 Criteria criteria = session.createCriteria(Funcionario.class)
-		 .add(Restrictions.eq("nome", funcionario.getNome()))
 		 .add(Restrictions.eq("cpf", funcionario.getCpf()));
 		 return (Funcionario) criteria.uniqueResult();
 	}

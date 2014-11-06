@@ -8,16 +8,16 @@ public class GestaoFuncionarios {
 	private Funcionarios funcionarios = new Funcionarios();
 	
 	public void salvar(Funcionario funcionario) throws RegraNegocioException{
-		if(existeNomeIgual(funcionario)){
-			throw new RegraNegocioException("Já existe um nome igual a este.");
+		if(existeCpfIgual(funcionario)){
+			throw new RegraNegocioException("Existe Funcionario com CPF igual a este.");
 		}
 		
 		this.funcionarios.salvar(funcionario);
 	}
 	
-	private boolean existeNomeIgual(Funcionario funcionario) {
-		Funcionario nomeIgual = this.funcionarios.comDadosIguais(funcionario);
-		return nomeIgual != null && !nomeIgual.equals(funcionario);
+	private boolean existeCpfIgual(Funcionario funcionario) {
+		Funcionario cpfIgual = this.funcionarios.comCpfIgual(funcionario);
+		return cpfIgual != null && !cpfIgual.equals(funcionario);
 	}
     
 	public void excluir(Funcionario funcionario){

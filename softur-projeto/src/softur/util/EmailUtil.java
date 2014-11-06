@@ -63,6 +63,9 @@ public class EmailUtil {
 		properties.put("mail.smtp.port", context.getInitParameter("porta"));
 		properties.put("mail.smtp.auth", context.getInitParameter("auth"));
 		properties.put("mail.smtp.starttls.enable", context.getInitParameter("tls"));
+		properties.setProperty("mail.smtp.ssl.trust", "smtpserver");
+	    properties = (Properties)System.getProperties().clone();   
+	   
 
 //		properties.put("mail.smtp.debug", "true");
 		

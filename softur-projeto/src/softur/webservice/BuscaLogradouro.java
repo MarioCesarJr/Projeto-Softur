@@ -1,6 +1,5 @@
-package softur.entities;
+package softur.webservice;
 
-import softur.webservice.CepWebService;
 
 /*
  * BuscaLogradouro.java

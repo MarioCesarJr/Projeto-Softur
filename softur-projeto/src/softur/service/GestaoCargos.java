@@ -11,6 +11,15 @@ public class GestaoCargos {
 		if(existeCargoIgual(cargo)){
 			throw new RegraNegocioException("Já existe um cargo igual a este.");
 		}
+		
+		if(cargo.getNomeCargo() == null || cargo.getNomeCargo().equals("")){
+			throw new RegraNegocioException("O campo cargo é obrigatório.");
+		}
+		
+		if(cargo.getNomeCargo().length() > 35) {
+			throw new RegraNegocioException("É permitido somente 35 caracteres.");
+		}
+		
 		this.cargos.salvar(cargo);
 	}
 	

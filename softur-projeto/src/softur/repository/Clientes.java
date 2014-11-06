@@ -10,7 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import softur.entities.Cliente;
-import softur.entities.Funcionario;
 import softur.util.JpaUtil;
 
 public class Clientes {
