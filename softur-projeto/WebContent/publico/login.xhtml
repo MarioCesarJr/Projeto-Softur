@@ -25,15 +25,18 @@
 					</div>
 					<div class="panel-body">
 						<h:form role="form">
-							<fieldset>
+						  <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				               style="list-style-type: none;"/>
+						  <fieldset>
 								<div class="form-group">
-									<h:inputText value="" class="form-control" pt:placeholder="E-mail" />
+									<h:inputText value="#{segurancaBean.usuario}" class="form-control" pt:placeholder="E-mail" />
 								</div>
 								<div class="form-group">
-								    <h:inputSecret value="" class="form-control" pt:placeholder="Senha"/>
+								    <h:inputSecret value="#{segurancaBean.senha}" class="form-control" pt:placeholder="Senha"/>
                                 </div>
 								<!-- Change this to a button or input when using this as a form -->
-								<a href="..//restrito/admin.xhtml" class="btn btn-lg btn-primary btn-block">Entrar</a>
+								<h:commandButton value="Entrar" action="#{segurancaBean.logar}" 
+								class="btn btn-lg btn-primary btn-block"/>
 							</fieldset>
 						</h:form>
 					</div>

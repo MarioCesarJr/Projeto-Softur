@@ -14,7 +14,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="admin.xhtml">SOFTUR ADMIN</a>
+          <a class="navbar-brand" href="admin.xhtml">SOFTUR ADMIN
+          <h:form>
+             <h:outputFormat value="Olá {0}">
+                  <f:param value="#{facesContext.externalContext.userPrincipal.name}"/>
+             </h:outputFormat>
+          </h:form>
+          
+          </a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -28,7 +35,11 @@
 				<li><a href="#"><i class="fa fa-user fa-fw"></i>Perfil</a></li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i>Configurações</a></li>
                    <li class="divider"></li>
-                <li><a href="login.xhtml"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>         
+                <li><a href="login.xhtml"><i class="fa fa-sign-out fa-fw"></i>Logout
+                <h:form>
+                <h:commandLink action="#{segurancaBean.sair}"/>
+                </h:form>
+                </a></li>         
               </ul>
             </li>
           </ul>
