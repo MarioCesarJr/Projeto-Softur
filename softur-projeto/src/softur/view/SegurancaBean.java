@@ -10,6 +10,7 @@ import softur.util.FacesUtil;
 
 @ManagedBean
 public class SegurancaBean {
+	
 	private String usuario;
 	private String senha;
 
