@@ -5,47 +5,41 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
 import softur.entities.Veiculo;
+import softur.util.JpaUtil;
 
-public class Veiculos{
-private EntityManager em;
+public class Veiculos {
 	
-	public Veiculos(EntityManager entityManager){
+	private EntityManager em;
+
+	public Veiculos(EntityManager entityManager) {
 		this.em = entityManager;
 	}
-
 	
-	public void salvar(Veiculo frota) {
-		em.merge(frota);
-		
+	public Veiculos(){
+		this.em = JpaUtil.getEntityManager();
 	}
 
-	
-	public void deletar(Veiculo frota) {
-		frota = buscarId(frota.getId());
+	public void salvar(Veiculo veiculo) {
+		em.merge(veiculo);
+
+	}
+
+	public void deletar(Veiculo veiculo) {
+		veiculo = buscarId(veiculo.getId());
 		try {
-			em.remove(frota);
+			em.remove(veiculo);
 			em.flush();
 		} catch (PersistenceException e) {
 			e.getMessage();
 		}
-		
-	}
 
-	
-	public void atualizar(Veiculo frota) {
-		em.merge(frota);
-		
 	}
 
 	public Veiculo buscarId(Long codigo) {
-		Veiculo frota = em.find(Veiculo.class, codigo);
-		if (frota != null) {
-			return frota;
+		Veiculo veiculo = em.find(Veiculo.class, codigo);
+		if (veiculo != null) {
+			return veiculo;
 		}
 
 		return null;
@@ -53,17 +47,7 @@ private EntityManager em;
 
 	@SuppressWarnings("unchecked")
 	public List<Veiculo> listarTodos() {
-		return em.createQuery("from Cliente").getResultList();
+		return em.createQuery("from Veiculo").getResultList();
 	}
-
-	public Veiculo comDadosIguais(Veiculo frota) {
-		 Session session = em.unwrap(Session.class);
-		 Criteria criteria = session.createCriteria(Veiculo.class)
-		 .add(Restrictions.eq("placa", frota.getPlaca()))
-		 .add(Restrictions.eq("chassi", frota.getChassi()));
-		 return (Veiculo) criteria.uniqueResult();
-	}
-	
-	
 
 }

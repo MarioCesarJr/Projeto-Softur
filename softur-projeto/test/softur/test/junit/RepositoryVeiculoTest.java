@@ -45,8 +45,8 @@ public class RepositoryVeiculoTest {
 	@Test
 	public void testSalvar() {
 		Veiculo veiculo = new Veiculo();
-		veiculo.setBanheiro(true);
-		veiculo.setPoltronas(40);
+		veiculo.setBanheiro("Sim");
+		veiculo.setPoltronas("23");
 		veiculo.setMarca("Mercedes");
 		veiculo.setModelo("�nibus");
 		veiculo.setPlaca("MAR-4578");
