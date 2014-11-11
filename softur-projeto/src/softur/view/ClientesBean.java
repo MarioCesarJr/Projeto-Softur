@@ -1,22 +1,21 @@
 package softur.view;
 
-import java.util.List;
+
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 
-import softur.entities.Cargo;
 import softur.entities.Cliente;
 import softur.entities.Endereco;
-import softur.entities.Funcionario;
 import softur.service.GestaoClientes;
-import softur.service.GestaoFuncionarios;
 import softur.service.RegraNegocioException;
 import softur.util.FacesUtil;
 
+@ManagedBean
 public class ClientesBean {
 
-	private Cliente clienteEnt;
+	private Cliente clienteEnt = new Cliente();
 
 	@PostConstruct
 	public void init() {
@@ -57,10 +56,6 @@ public class ClientesBean {
 		if (clienteEnt == null) {
 			clienteEnt = new Cliente();
 			clienteEnt.setEndereco(new Endereco());
-		} else {
-			// evitar erro quando for atualizar um dado ja existente devido a
-			// restricao de nomes iguais
-			clienteEnt = (Cliente) clienteEnt.clone();
 		}
 	}
 

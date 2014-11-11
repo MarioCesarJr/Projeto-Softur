@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<f:metadata>
+	<f:viewParam name="codigo" value="#{ClientesBean.funcionario}" />
+</f:metadata>
+
+<ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
+
+	<ui:define name="content">
+		<div class="row">
+			<div class="container-fluid">
+				<h:form role="form" prependId="false">
+
+					<!-- Linha 1 -->
+					<div class="row">
+
+						<div class="col-md-8">
+							<label>Nome</label>
+							<h:inputText value="#{clientesBean.cliente.nome}"
+								styleClass="form-control" label="Nome" size="60" />
+						</div>
+
+						<div class="col-md-4">
+							<label>CPF</label>
+							<h:inputText value="#{clientesBean.cliente.cpf}"
+								styleClass="form-control" label="CPF" size="14" maxlength="14" />
+
+						</div>
+					</div>
+
+					<!-- Linha 2 -->
+					<div class="row">
+
+						<div class="col-md-6">
+							<label>Telefone</label>
+							<h:inputText value="#{clientesBean.cliente.telefone}"
+								styleClass="form-control" label="Telefone" size="14"
+								maxlength="14" />
+
+						</div>
+
+						<div class="col-md-6">
+							<label>Email</label>
+							<h:inputText value="#{clientesBean.cliente.email}"
+								styleClass="form-control" label="Telefone" size="40"
+								maxlength="40" />
+
+						</div>
+
+					</div>
+
+					<hr />
+					<!-- Linha 3 -->
+					<div class="row">
+
+						<div class="col-md-6">
+							<label>Rua</label>
+							<h:inputText value="#{clientesBean.cliente.endereco.rua}"
+								styleClass="form-control" label="Bairro" size="40" />
+
+						</div>
+
+						<div class="col-md-6">
+							<label>Bairro</label>
+							<h:inputText value="#{clientesBean.cliente.endereco.bairro}"
+								styleClass="form-control" label="Bairro" size="40" />
+
+						</div>
+
+					</div>
+
+					<!-- Linha 4 -->
+					<div class="row">
+
+						<div class="col-md-6">
+							<label>Cidade</label>
+							<h:inputText value="#{clientesBean.cliente.endereco.cidade}"
+								styleClass="form-control" label="Cidade" size="40" />
+
+						</div>
+
+						<div class="col-md-2">
+							<label>Estado</label>
+							<h:inputText value="#{clientesBean.cliente.endereco.estado}"
+								styleClass="form-control" label="Estado" size="40" />
+
+						</div>
+
+						<div class="col-md-4">
+							<label>Pais</label>
+							<h:inputText value="#{clientesBean.cliente.endereco.pais}"
+								styleClass="form-control" label="País" size="40" />
+
+						</div>
+					</div>
+					<!-- Linha 5 -->
+					<div class="row">
+						<div class="col-md-4">
+							<label>CEP</label>
+							<h:inputText value="#{clientesBean.cliente.endereco.cep}"
+								styleClass="form-control" label="CEP" size="40" />
+
+						</div>
+
+					</div>
+
+
+
+
+					<h:commandButton value="Salvar" styleClass="btn btn-theme"
+						action="#{clientesBean.salvar}">
+						<f:ajax execute="@form" render="@all" />
+					</h:commandButton>
+
+					<h:messages infoClass="alert alert-info"
+						errorClass="alert alert-danger" showDetail="false"
+						style="list-style-type: none;" />
+
+				</h:form>
+			</div>
+
+
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+</html>

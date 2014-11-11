@@ -23,20 +23,20 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 60, nullable = false, name = "nome_Cliente")
+	@Column(name = "nome_Cliente")
 	private String nome;
 
 	// tratar se for estrangeiro
 	private String cpf;
 
-	@Column(length = 11, nullable = false)
+	@Column
 	private String telefone;
 
-	@Column(nullable = false)
+	@Column
 	private String email;
 
 	@Temporal(TemporalType.DATE)
-	@Column(nullable = false)
+	@Column
 	private Date dataCadastro;
 
 	@OneToOne(cascade=CascadeType.ALL)
@@ -124,8 +124,5 @@ public class Cliente implements Serializable {
 		return result;
 	}
 	
-	@Override
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+	
 }
