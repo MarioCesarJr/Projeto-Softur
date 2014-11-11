@@ -71,6 +71,7 @@ body {
 					<th>CPF</th>
 					<th>Telefone</th>
 					<th>E-mail</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -93,6 +94,7 @@ body {
 					<td><%=cliente.getCpf()%></td>
 					<td><%=cliente.getTelefone()%></td>
 					<td><%=cliente.getEmail()%></td>
+					
 					
 				</tr>
 				</div>
