@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+      
+      <f:metadata>
+          <f:viewParam name="codigo" value="#{cadastroVeiculoBean.veiculo}"/>
+     </f:metadata>
+
+<ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
+
+	<ui:define name="content">
+       
+       <div class="row">
+			<div class="container-fluid">  
+         
+         <h:form>
+             <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   style="list-style-type: none;"/>
+           
+             <div class="row">
+             
+                  <div class="col-md-8">         
+					 <label>Marca</label>
+				   <h:inputText value="#{cadastroVeiculoBean.veiculo.marca}" styleClass="form-control"/>
+			      </div>
+			   
+			     <div class="col-md-4">
+				   <label>Modelo</label>
+				   <h:inputText value="#{cadastroVeiculoBean.veiculo.modelo}" styleClass="form-control"/>
+			     </div>
+			
+			</div>
+			
+			<div class="row">
+			
+				 <div class="col-md-4">   
+				   <label>Placa</label>
+				   <h:inputText value="#{cadastroVeiculoBean.veiculo.placa}" styleClass="form-control"/>
+				 </div>  
+				   
+				 <div class="col-md-4">  
+				   <label>Chassi</label>
+				   <h:inputText value="#{cadastroVeiculoBean.veiculo.chassi}" styleClass="form-control"/>
+				 </div>  
+				   
+				 <div class="col-md-4">  
+				   <label>Numero de Poltronas</label>
+				   <h:inputText value="#{cadastroVeiculoBean.veiculo.poltronas}" styleClass="form-control"/>
+			    </div>
+		    
+		    </div>
+		    
+		    <div class="row">
+                
+                <div class="col-md-4">
+		           <label>Ano Modelo</label>
+		           <h:inputText value="#{cadastroVeiculoBean.veiculo.anoModelo}" styleClass="form-control"/>
+		        </div>
+                		    
+			    <div class="col-md-4">
+				    <label>
+		              Possui  Banheiro ?
+				    </label>
+				    <h:selectOneMenu value="#{cadastroVeiculoBean.veiculo.banheiro}" class="form-control">
+				         <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+				         <f:selectItem itemValue="SIM"/>
+				         <f:selectItem itemValue="NÃO"/>
+				    </h:selectOneMenu>
+				</div>
+		    
+		    </div><br/>
+		     
+		     <h:commandButton value="Salvar" styleClass="btn btn-theme" action="#{cadastroVeiculoBean.salvar}" >
+		          <f:ajax execute="@form" render="@all"/>
+		     </h:commandButton>
+		     
+		    
+		 </h:form>				  
+       </div>		
+	  </div>			
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
+
+	<ui:define name="content">
+		<div class="row">
+			<div class="container-fluid">
+              
+              <h:form id="form">
+                 <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   style="list-style-type: none;"/>
+              
+				<h:dataTable styleClass="table" var="veiculo" value="#{consultaVeiculoBean.veiculoList}">
+				    
+				    <h:column>
+						<f:facet name="header">
+							Codigo
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.id}"/>
+					</h:column>
+				    
+					<h:column>
+						<f:facet name="header">
+							Marca
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.marca}"/>
+		            </h:column>
+		            
+		            <h:column>
+						<f:facet name="header">
+							Modelo
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.modelo}"/>
+		            </h:column>
+		            
+		            <h:column>
+						<f:facet name="header">
+							Placa
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.placa}"/>
+		            </h:column>
+		            
+		            <h:column>
+						<f:facet name="header">
+							Chassi
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.chassi}"/>
+		            </h:column>
+		            
+		            <h:column>
+						<f:facet name="header">
+							Numero Poltronas
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.poltronas}"/>
+		            </h:column>
+		            
+		            <h:column>
+						<f:facet name="header">
+							Banheiro
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.banheiro}"/>
+		            </h:column>
+		            
+		            <h:column>
+						<f:facet name="header">
+							Ano Modelo
+						</f:facet>
+						
+						<h:outputText value="#{veiculo.anoModelo}"/>
+		            </h:column>
+		 
+		            <h:column>  
+		                    <h:link outcome="cadastroVeiculo">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <f:param name="codigo" value="#{veiculo.id}"/>
+                            </h:link>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                    <h:commandLink action="#{consultaVeiculoBean.excluir}" style="color:red;"
+		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
+		                        <span class="glyphicon glyphicon-remove-circle"></span>
+		                        <f:setPropertyActionListener target="#{consultaVeiculoBean.veiculoSelecionado}" 
+		                        value="#{veiculo}"/>
+		                        <f:ajax render="@form" />
+		                    </h:commandLink>    
+                    </h:column>                       
+				</h:dataTable>
+              </h:form>
+              				
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+</html>

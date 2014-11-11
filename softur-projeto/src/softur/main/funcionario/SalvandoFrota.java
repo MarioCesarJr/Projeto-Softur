@@ -14,10 +14,10 @@ public class SalvandoFrota {
 
 		frota.setMarca("Volvo");
 		frota.setModelo("B215LH");
-		frota.setBanheiro(true);
+		frota.setBanheiro("Sim");
 		frota.setPlaca("BZO-1258");
 		frota.setChassi("9BWZZZ377VT004251");
-		frota.setPoltronas(30);
+		frota.setPoltronas("23");
 
 		
 	}
