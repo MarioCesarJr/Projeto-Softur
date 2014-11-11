@@ -11,6 +11,7 @@ import softur.util.FacesUtil;
 public class CadastroVeiculoBean {
 
 	private Veiculo veiculo = new Veiculo();
+	
 
 	public String salvar() {
 		GestaoVeiculos gestaoVeiculos = new GestaoVeiculos();
@@ -26,5 +27,15 @@ public class CadastroVeiculoBean {
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
+
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+		if(this.veiculo == null){
+			this.veiculo = new Veiculo();
+		}
+	}
+	
+	
 
 }

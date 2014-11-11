@@ -81,6 +81,11 @@
 		            </h:column>
 		 
 		            <h:column>  
+		                    <h:link outcome="cadastroVeiculo">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <f:param name="codigo" value="#{veiculo.id}"/>
+                            </h:link>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		                    <h:commandLink action="#{consultaVeiculoBean.excluir}" style="color:red;"
 		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
