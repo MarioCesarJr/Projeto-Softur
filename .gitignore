@@ -9,4 +9,4 @@ Servers/*
 RemoteSystemsTempFiles/*
 lib/*
 target/
-build/*
+/build/*
