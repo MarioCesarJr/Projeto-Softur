@@ -9,72 +9,78 @@
 	<ui:define name="content">
 		<div class="row">
 			<div class="container-fluid">
-              
-              <h:form>
-				<h:dataTable styleClass="table" var="cliente" value="#{consultaClienteBean.clientes}">
-				    
-				    <h:column>
-						<f:facet name="header">
+
+				<h:form>
+					<h:dataTable styleClass="table" var="cliente"
+						value="#{consultaClienteBean.clientes}">
+
+						<h:column>
+							<f:facet name="header">
 							Codigo
 						</f:facet>
-						
-						<h:outputText value="#{cliente.id}"/>
-					</h:column>
-				    
-					<h:column>
-						<f:facet name="header">
+
+							<h:outputText value="#{cliente.id}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
 							Nome
 						</f:facet>
+
+							<h:outputText value="#{cliente.nome}" />
+						</h:column>
+
+
+
 						
-						<h:outputText value="#{cliente.nome}"/>
-					</h:column>
-				
+
 					
-					<h:column>
-						<f:facet name="header">
+
+						<h:column>
+							<f:facet name="header">
 							Telefone
 						</f:facet>
-						
-						<h:outputText value="#{cliente.telefone}"/>
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">
+
+							<h:outputText value="#{cliente.telefone}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
 							CPF
 						</f:facet>
+
+							<h:outputText value="#{cliente.cpf}" />
+						</h:column>
+
 						
-						<h:outputText value="#{cliente.cpf}"/>
-					</h:column>
-					
-				
-					
-					<h:column>
-						<f:facet name="header">
+
+						<h:column>
+							<f:facet name="header">
 							E-mail
 						</f:facet>
-						
-						<h:outputText value="#{cliente.email}"/>
-					</h:column>
-					
-					
-					
-                    
-                    <h:column>
-                            <h:link outcome="cadastroCliente">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <f:param name="codigo" value="#{cliente.id}"/>
-                            </h:link>
+
+							<h:outputText value="#{cliente.email}" />
+						</h:column>
+
+
+						<h:column>
+							<h:link outcome="cadastroCliente">
+								<span class="glyphicon glyphicon-pencil"></span>
+								<f:param name="codigo" value="#{cliente.id}" />
+							</h:link>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                    <h:commandLink action="#{consultaClienteBean.excluir}" style="color:red;"
-		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
-		                        <span class="glyphicon glyphicon-remove-circle"></span>
-		                        <f:setPropertyActionListener target="#{consultaClienteBean.clienteIndex}" 
-		                        value="#{cliente}"/>
-		                        <f:ajax render="@form"/>
-		                    </h:commandLink>    
-                    </h:column>                    
-				</h:dataTable>
-              </h:form>				
+		                    <h:commandLink
+								action="#{consultaClienteBean.excluir}" style="color:red;"
+								onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
+								<span class="glyphicon glyphicon-remove-circle"></span>
+								<f:setPropertyActionListener
+									target="#{consultaClienteBean.clienteSelecionado}"
+									value="#{cliente}" />
+								<f:ajax render="@form" />
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</h:form>
 			</div>
 		</div>
 

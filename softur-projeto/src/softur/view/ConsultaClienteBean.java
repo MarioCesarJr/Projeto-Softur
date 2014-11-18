@@ -11,37 +11,37 @@ import softur.service.GestaoClientes;
 
 @ManagedBean
 public class ConsultaClienteBean {
-	private List<Cliente> clientesList;
-	private Cliente clienteIndex;
 
+	private List<Cliente> clienteslist;
+    private Cliente clienteSelecionado;
+    
+	
 	@PostConstruct
-	public void init() {
-
+	public void init(){
+		
+		Clientes clientes = new Clientes();
+		this.clienteslist = clientes.listarTodos();
 	}
-
-	public String excluir() {
-		GestaoClientes gestaoclientes = new GestaoClientes();
-		gestaoclientes.excluir(this.clienteIndex);
-		this.init();
-		return "";
+	
+	public String excluir(){
+	    GestaoClientes gestaoClientes = new GestaoClientes();
+	    gestaoClientes.excluir(this.clienteSelecionado);
+	    this.init();
+	    return "";
 	}
-
+	
 	public List<Cliente> getClientes() {
-		if (clientesList == null) {
-			Clientes clientes = new Clientes();
-			this.clientesList = clientes.listarTodos();
-
-		}
-		return clientesList;
-
+		return clienteslist;
 	}
 
-	public Cliente getClienteIndex() {
-		return clienteIndex;
+	public Cliente getClienteSelecionado() {
+		return clienteSelecionado;
 	}
 
-	public void setClienteIndex(Cliente clienteIndex) {
-		this.clienteIndex = clienteIndex;
+	public void setClienteSelecionado(Cliente clienteSelecionado) {
+		this.clienteSelecionado = clienteSelecionado;
 	}
+	
+	
 
 }

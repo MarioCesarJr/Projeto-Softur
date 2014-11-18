@@ -13,7 +13,7 @@ import softur.entities.Cliente;
 import softur.util.JpaUtil;
 
 public class Clientes {
-	
+
 	private EntityManager em;
 
 	public Clientes(EntityManager entityManager){
@@ -24,12 +24,10 @@ public class Clientes {
 		this.em = JpaUtil.getEntityManager();
 	}
 
-
 	public void salvar(Cliente cliente) {
 		em.merge(cliente);
 		
 	}
-
 
 	public void deletar(Cliente cliente) {
 		cliente = buscarId(cliente.getId());
@@ -42,13 +40,11 @@ public class Clientes {
 		
 	}
 
-
 	public void atualizar(Cliente cliente) {
 		em.merge(cliente);
 		
 	}
 
-	
 	public Cliente buscarId(Long codigo) {
 		Cliente cliente = em.find(Cliente.class, codigo);
 		if (cliente != null) {
@@ -63,15 +59,12 @@ public class Clientes {
 		return em.createQuery("from Cliente").getResultList();
 	}
 
-	
-	public Cliente comDadosIguais(Cliente cliente) {
+	public Cliente comCpfIgual(Cliente cliente) {
 		 Session session = em.unwrap(Session.class);
 		 Criteria criteria = session.createCriteria(Cliente.class)
-		 .add(Restrictions.eq("nome", cliente.getNome()))
 		 .add(Restrictions.eq("cpf", cliente.getCpf()));
 		 return (Cliente) criteria.uniqueResult();
 	}
-  
-	 
+	
 	
 }

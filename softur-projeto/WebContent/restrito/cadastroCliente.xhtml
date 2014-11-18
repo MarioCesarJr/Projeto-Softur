@@ -6,7 +6,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <f:metadata>
-	<f:viewParam name="codigo" value="#{ClientesBean.cliente}" />
+	<f:viewParam name="codigo" value="#{clientesBean.cliente}" />
 </f:metadata>
 
 <ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
@@ -16,7 +16,6 @@
 			<div class="container-fluid">
 				<h:form role="form" prependId="false">
 
-					<!-- Linha 1 -->
 					<div class="row">
 
 						<div class="col-md-8">
@@ -25,93 +24,95 @@
 								styleClass="form-control" label="Nome" size="60" />
 						</div>
 
+
 						<div class="col-md-4">
 							<label>CPF</label>
-							<h:inputText value="#{clientesBean.cliente.cpf}"
-								styleClass="form-control" label="CPF" size="14" maxlength="14" />
-
+							<h:inputText id="cpf" value="#{clientesBean.cliente.cpf}"
+								styleClass="form-control" label="CPF">
+								<f:validator validatorId="validarCPF" />
+							</h:inputText>
 						</div>
+
 					</div>
 
-					<!-- Linha 2 -->
 					<div class="row">
 
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<label>Telefone</label>
-							<h:inputText value="#{clientesBean.cliente.telefone}"
-								styleClass="form-control" label="Telefone" size="14"
-								maxlength="14" />
-
+							<h:inputText id="telefone"
+								value="#{clientesBean.cliente.telefone}"
+								styleClass="form-control" label="Telefone" />
 						</div>
 
-						<div class="col-md-6">
-							<label>Email</label>
+						<div class="col-md-8">
+							<label>E-mail</label>
 							<h:inputText value="#{clientesBean.cliente.email}"
-								styleClass="form-control" label="Telefone" size="40"
-								maxlength="40" />
-
+								styleClass="form-control" label="E-mail"
+								pt:placeholder="nome@exemplo.com" />
 						</div>
 
 					</div>
 
-					<hr />
-					<!-- Linha 3 -->
+					<div class="row"></div>
+
+
+
+					<label>Endereço</label>
 					<div class="row">
 
 						<div class="col-md-6">
-							<label>Rua</label>
-							<h:inputText value="#{clientesBean.cliente.endereco.rua}"
-								styleClass="form-control" label="Bairro" size="40" />
-
+							<h:inputText id="cep"
+								value="#{clientesBean.cliente.endereco.cep}"
+								styleClass="form-control" pt:placeholder="CEP" label="CEP" />
 						</div>
 
 						<div class="col-md-6">
-							<label>Bairro</label>
 							<h:inputText value="#{clientesBean.cliente.endereco.bairro}"
-								styleClass="form-control" label="Bairro" size="40" />
-
+								styleClass="form-control" pt:placeholder="Bairro" label="bairro" />
 						</div>
 
 					</div>
 
-					<!-- Linha 4 -->
 					<div class="row">
 
 						<div class="col-md-6">
-							<label>Cidade</label>
+							<h:outputLabel value="" />
 							<h:inputText value="#{clientesBean.cliente.endereco.cidade}"
-								styleClass="form-control" label="Cidade" size="40" />
-
+								styleClass="form-control" pt:placeholder="Cidade" label="Cidade" />
 						</div>
 
-						<div class="col-md-2">
-							<label>Estado</label>
+						<div class="col-md-6">
+							<h:outputLabel value="" />
 							<h:inputText value="#{clientesBean.cliente.endereco.estado}"
-								styleClass="form-control" label="Estado" size="40" />
-
+								styleClass="form-control" pt:placeholder="Estado" label="Estado" />
 						</div>
 
-						<div class="col-md-4">
-							<label>Pais</label>
-							<h:inputText value="#{clientesBean.cliente.endereco.pais}"
-								styleClass="form-control" label="País" size="40" />
-
-						</div>
 					</div>
-					<!-- Linha 5 -->
+
 					<div class="row">
-						<div class="col-md-4">
-							<label>CEP</label>
-							<h:inputText value="#{clientesBean.cliente.endereco.cep}"
-								styleClass="form-control" label="CEP" size="40" />
 
+						<div class="col-md-4">
+							<h:outputLabel value="" />
+							<h:inputText value="#{clientesBean.cliente.endereco.numero}"
+								styleClass="form-control" pt:placeholder="Número" label="Número" />
+						</div>
+
+						<div class="col-md-4">
+							<h:outputLabel value="" />
+							<h:inputText value="#{clientesBean.cliente.endereco.rua}"
+								styleClass="form-control" pt:placeholder="Rua" label="Rua" />
+						</div>
+
+						<div class="col-md-4">
+							<h:outputLabel value="" />
+							<h:inputText value="#{clientesBean.cliente.endereco.pais}"
+								styleClass="form-control" pt:placeholder="País"
+								label="País" />
 						</div>
 
 					</div>
 
-
-
-
+					
 					<h:commandButton value="Salvar" styleClass="btn btn-theme"
 						action="#{clientesBean.salvar}">
 						<f:ajax execute="@form" render="@all" />
