@@ -18,7 +18,7 @@ import softur.util.FacesUtil;
 public class ClientesBean {
 
 
-	private Cliente cliente;
+	private Cliente cliente = new Cliente();
 	
 	@PostConstruct
 	public void init(){

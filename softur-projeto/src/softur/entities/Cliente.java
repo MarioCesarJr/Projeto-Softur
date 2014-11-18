@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Cliente implements Serializable {
+public class Cliente implements Serializable,Cloneable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -123,6 +123,7 @@ public class Cliente implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+	
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
