@@ -48,7 +48,9 @@
 							<label>E-mail</label>
 							<h:inputText value="#{clientesBean.cliente.email}"
 								styleClass="form-control" label="E-mail"
-								pt:placeholder="nome@exemplo.com" />
+								pt:placeholder="nome@exemplo.com" >
+								<f:validator validatorId="emailValida" />
+								</h:inputText>
 						</div>
 
 					</div>
