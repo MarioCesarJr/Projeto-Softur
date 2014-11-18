@@ -68,9 +68,12 @@ body {
 				<tr>
 					<th>Codigo</th>
 					<th>Nome</th>
-					<th>CPF</th>
 					<th>Telefone</th>
-					<th>E-mail</th>
+					<th>CEP</th>
+					<th>Estado</th>
+					<th>Cidade</th>
+					<th>Bairro</th>
+					<th>Numero</th>
 					
 				</tr>
 			</thead>
@@ -80,6 +83,7 @@ body {
 					EntityManager manager = JpaUtil.createEntityManager();
 
 					try {
+						
 						Clientes clientes = new Clientes(manager);
 						List<Cliente> clientesList = clientes.listarTodos();
 				%>
@@ -91,10 +95,12 @@ body {
 				<tr>
 					<td><%=cliente.getId()%></td>
 					<td><%=cliente.getNome()%></td>
-					<td><%=cliente.getCpf()%></td>
 					<td><%=cliente.getTelefone()%></td>
-					<td><%=cliente.getEmail()%></td>
-					
+					<td><%=cliente.getEndereco().getCep()%></td>
+					<td><%=cliente.getEndereco().getEstado()%></td>
+					<td><%=cliente.getEndereco().getCidade()%></td>
+					<td><%=cliente.getEndereco().getBairro()%></td>
+					<td><%=cliente.getEndereco().getNumero()%></td>
 					
 				</tr>
 				</div>
