@@ -14,14 +14,14 @@
                  <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
 				   style="list-style-type: none;"/>
               
-				<h:dataTable styleClass="table" var="veiculo" value="#{consultaVeiculoBean.veiculoList}">
+				<h:dataTable styleClass="table" var="viagem" value="#{consultaViagemBean.viagensList}">
 				    
 				    <h:column>
 						<f:facet name="header">
 							Codigo
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.id}"/>
+						<h:outputText value="#{viagem.id}"/>
 					</h:column>
 				    
 				    <h:column>
@@ -29,76 +29,76 @@
 							Número Veículo
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.numero}"/>
+						<h:outputText value="#{viagem.veiculo.numero}"/>
 		            </h:column>
 				    
 					<h:column>
 						<f:facet name="header">
-							Marca
+							Funcionario
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.marca}"/>
+						<h:outputText value="#{viagem.funcionario.nome}"/>
 		            </h:column>
 		            
 		            <h:column>
 						<f:facet name="header">
-							Modelo
+							Data
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.modelo}"/>
+						<h:outputText value="#{viagem.data}"/>
 		            </h:column>
 		            
 		            <h:column>
 						<f:facet name="header">
-							Placa
+							Horário
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.placa}"/>
+						<h:outputText value="#{viagem.horario}"/>
 		            </h:column>
 		            
 		            <h:column>
 						<f:facet name="header">
-							Chassi
+							Destino
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.chassi}"/>
+						<h:outputText value="#{viagem.destino}"/>
 		            </h:column>
 		            
 		            <h:column>
 						<f:facet name="header">
-							Numero Poltronas
+							Cliente
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.poltronas}"/>
+						<h:outputText value="#{viagem.cliente.nome}"/>
 		            </h:column>
 		            
 		            <h:column>
 						<f:facet name="header">
-							Banheiro
+							Valor
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.banheiro}"/>
+						<h:outputText value="#{viagem.valor}"/>
 		            </h:column>
 		            
 		            <h:column>
 						<f:facet name="header">
-							Ano Modelo
+							Situação
 						</f:facet>
 						
-						<h:outputText value="#{veiculo.anoModelo}"/>
+						<h:outputText value="#{viagem.situacao}"/>
 		            </h:column>
 		 
 		            <h:column>  
-		                    <h:link outcome="cadastroVeiculo">
+		                    <h:link outcome="cadastroViagem">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <f:param name="codigo" value="#{veiculo.id}"/>
+                                <f:param name="codigo" value="#{viagem.id}"/>
                             </h:link>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                    <h:commandLink action="#{consultaVeiculoBean.excluir}" style="color:red;"
+		                    <h:commandLink action="#{consultaViagemBean.excluir}" style="color:red;"
 		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
-		                        <f:setPropertyActionListener target="#{consultaVeiculoBean.veiculoSelecionado}" 
-		                        value="#{veiculo}"/>
+		                        <f:setPropertyActionListener target="#{consultaViagemBean.viagemSelecionada}" 
+		                        value="#{viagem}"/>
 		                        <f:ajax render="@form" />
 		                    </h:commandLink>    
                     </h:column>                       

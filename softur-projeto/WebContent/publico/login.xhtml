@@ -12,7 +12,8 @@
 	<!-- Bootstrap core CSS -->
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 
-<style>	
+<style>
+	
 body {
   margin: 0;
   line-height: 1.5;
@@ -40,8 +41,8 @@ body {
 					</div>
 					<div class="panel-body">
 						<h:form role="form">
-						  <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
-				               style="list-style-type: none;"/>
+						  <h:messages  showDetail="false" 
+				               style="list-style-type: none;color:red;margin-left: -36px;" />
 						  <fieldset>
 								<div class="form-group">
 									<h:inputText value="#{segurancaBean.usuario}" class="form-control" pt:placeholder="Usuário" />

@@ -4,20 +4,46 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "viagem")
 public class Viagem implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@ManyToOne
 	private Veiculo veiculo;
+
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Funcionario funcionario;
+
+	@Temporal(TemporalType.DATE)
 	private Date data;
+
 	private String horario;
-	private String Destino;
+
+	private String destino;
+
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Cliente cliente;
-	private BigDecimal valor;
-	private String hodometroInicial;
+
 	private String situacao;
+
+	private BigDecimal valor;
+
 	private String observacao;
 
 	public Long getId() {
@@ -61,13 +87,13 @@ public class Viagem implements Serializable {
 	}
 
 	public String getDestino() {
-		return Destino;
+		return destino;
 	}
 
 	public void setDestino(String destino) {
-		Destino = destino;
+		this.destino = destino;
 	}
-
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -84,12 +110,12 @@ public class Viagem implements Serializable {
 		this.valor = valor;
 	}
 
-	public String getHodometroInicial() {
-		return hodometroInicial;
+	public String getObservacao() {
+		return observacao;
 	}
 
-	public void setHodometroInicial(String hodometroInicial) {
-		this.hodometroInicial = hodometroInicial;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	public String getSituacao() {
@@ -98,14 +124,6 @@ public class Viagem implements Serializable {
 
 	public void setSituacao(String situacao) {
 		this.situacao = situacao;
-	}
-
-	public String getObservacao() {
-		return observacao;
-	}
-
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
 	}
 
 	@Override

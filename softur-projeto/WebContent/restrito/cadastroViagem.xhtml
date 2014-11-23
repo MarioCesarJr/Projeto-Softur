@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+      <f:metadata>
+          <f:viewParam name="codigo" value="#{cadastroViagemBean.viagem}"/>
+     </f:metadata>
+      
+
+<ui:composition template="/WEB-INF/templateAdmin/principal.xhtml">
+
+	<ui:define name="content">
+       
+       <div class="row">
+			<div class="container-fluid">  
+         
+         <h:form>
+             <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   style="list-style-type: none;"/>
+           
+             <div class="row">
+             
+                  <div class="col-md-4">         
+					 <label>Data</label>
+				   <h:inputText id="data" value="#{cadastroViagemBean.viagem.data}" styleClass="form-control" label="Data">
+				       <f:convertDateTime pattern="dd/MM/yyyy"/>
+				   </h:inputText>
+			      </div>
+			   
+			     <div class="col-md-4">
+				   <label>Horário</label>
+				   <h:inputText value="#{cadastroViagemBean.viagem.horario}" styleClass="form-control" label="Horário"/>
+			     </div>
+			     
+			     <div class="col-md-4">   
+				   <label>Destino</label>
+				   <h:inputText value="#{cadastroViagemBean.viagem.destino}" styleClass="form-control" label="Destino"/>
+				 </div> 
+			     
+			</div>
+			
+			<div class="row"> 
+				   
+				 <div class="col-md-4">  
+				   <label>Valor</label>
+				   <h:inputText id="salario" value="#{cadastroViagemBean.viagem.valor}" styleClass="form-control" label="Valor">
+				          <f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2"/>
+						  <f:validateDoubleRange minimum="0"/>
+				   </h:inputText>
+				 </div>  
+				   
+				<div class="col-md-4">
+					  <label>Cliente</label>
+						<h:selectOneMenu value="#{cadastroViagemBean.viagem.cliente}" class="form-control" label="cliente">
+							 <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+							 <f:selectItems value="#{cadastroViagemBean.clientesList}" var="cliente" itemValue="#{cliente}"
+							    itemLabel="#{cliente.nome}"/>
+						</h:selectOneMenu> 
+			   </div>
+			    
+			    <div class="col-md-4">
+					  <label>Veículo</label>
+						<h:selectOneMenu value="#{cadastroViagemBean.viagem.veiculo}" class="form-control" label="Veículo">
+							 <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+							 <f:selectItems value="#{cadastroViagemBean.veiculosList}" var="veiculo" itemValue="#{veiculo}"
+							    itemLabel="#{veiculo.numero}"/>
+						</h:selectOneMenu> 
+			   </div>
+		    
+		    </div>
+		    
+		    <div class="row">
+		    
+		        <div class="col-md-4">
+					  <label>Funcionario</label>
+						<h:selectOneMenu value="#{cadastroViagemBean.viagem.funcionario}" class="form-control" label="Funcionario">
+							 <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+							 <f:selectItems value="#{cadastroViagemBean.funcionariosList}" var="funcionario" itemValue="#{funcionario}"
+							    itemLabel="#{funcionario.nome}"/>
+						</h:selectOneMenu> 
+			   </div>
+                      		    
+			    <div class="col-md-4">
+				    <label>
+		              Situação
+				    </label>
+				    <h:selectOneMenu value="#{cadastroViagemBean.viagem.situacao}" class="form-control" label="Situação">
+				         <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+				         <f:selectItem itemValue="EM ANDAMENTO"/>
+				         <f:selectItem itemValue="PLANEJAR"/>
+				    </h:selectOneMenu>
+				</div>
+		    
+		    </div><br/>
+		     
+		     <h:commandButton value="Salvar" styleClass="btn btn-theme" action="#{cadastroViagemBean.salvar}" >
+		          <f:ajax execute="@form" render="@all"/>
+		     </h:commandButton>
+		     
+		    
+		 </h:form>				  
+       </div>		
+	  </div>			
+	</ui:define>
+
+</ui:composition>
+</html>
