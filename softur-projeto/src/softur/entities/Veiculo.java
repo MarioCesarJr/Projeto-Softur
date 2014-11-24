@@ -29,6 +29,8 @@ public class Veiculo implements Serializable {
 	private String banheiro;
 
 	private String anoModelo;
+	
+	private String numero;
 
 	public Long getId() {
 		return id;
@@ -92,6 +94,14 @@ public class Veiculo implements Serializable {
 
 	public void setAnoModelo(String anoModelo) {
 		this.anoModelo = anoModelo;
+	}
+	
+	public String getNumero() {
+		return numero;
+	}
+	
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
 	@Override

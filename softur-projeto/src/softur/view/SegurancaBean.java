@@ -19,7 +19,7 @@ public class SegurancaBean {
 			this.getRequest().login(this.usuario, this.senha);
 			return "/restrito/admin?faces-redirect=true";
 		} catch (ServletException e) {
-			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Senha Incorreta");
+			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Senha ou Usuário Incorreto");
 			return null;
 		}
 	}
