@@ -38,6 +38,9 @@ public class GestaoFuncionarios {
 	
 		}else if(funcionario.getSalario() == null || funcionario.getSalario().equals("")){
 			throw new RegraNegocioException("O campo salário é obrigatório");
+     
+		}else if(funcionario.getCargo() == null || funcionario.getCargo().equals("")){
+			throw new RegraNegocioException("O campo cargo é obrigatório");
      }
 	
   }	
