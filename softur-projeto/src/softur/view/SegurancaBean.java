@@ -26,7 +26,7 @@ public class SegurancaBean {
 
 	public String sair() throws ServletException {
 		this.getRequest().logout();
-		return "/publico/login?faces-redirect=true";
+		return "/publico/index?faces-redirect=true";
 	}
 
 	private HttpServletRequest getRequest() {

@@ -45,7 +45,9 @@
 							Data
 						</f:facet>
 						
-						<h:outputText value="#{viagem.data}"/>
+						<h:outputText value="#{viagem.data}">
+						    <f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:outputText>
 		            </h:column>
 		            
 		            <h:column>
