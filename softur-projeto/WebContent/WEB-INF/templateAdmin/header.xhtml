@@ -21,7 +21,7 @@
             <li style="color:white;font-size:30px;">
            <h:form>
              <h:outputFormat value="Olá {0}">
-                  <f:param value="#{facesContext.externalContext.userPrincipal.name}"/>
+                  <f:param value="#{sessaoUsuarioMb.nomeUsuario}"/>
              </h:outputFormat>
           </h:form></li>
             <li><a href=""></a></li>
@@ -35,7 +35,7 @@
                    <li class="divider"></li>
                 <li>
                 <h:form>
-                <h:commandLink action="#{segurancaBean.sair}"><i class="fa fa-sign-out fa-fw" />Logout</h:commandLink>
+                <h:commandLink action="#{sessaoUsuarioMb.logout}"><i class="fa fa-sign-out fa-fw" />Logout</h:commandLink>
                 </h:form>
                 </li>         
               </ul>

@@ -21,13 +21,13 @@
 						<div class="col-md-8">
 							<label>Nome</label>
 							<h:inputText value="#{funcionariosBean.funcionario.nome}" styleClass="form-control" 
-							 label="Nome" size="60"/>
+							 label="Nome" />
 						</div>
 
 
 						<div class="col-md-4">
 							<label>CPF</label>
-							<h:inputText id="cpf" value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control" 
+							<h:inputText value="#{funcionariosBean.funcionario.cpf}" styleClass="form-control cpf" 
 							 label="CPF" >
 							    <f:validator validatorId="validarCPF"/>
 							</h:inputText>
@@ -39,7 +39,7 @@
 
 						<div class="col-md-4">
 							<label>Telefone</label>
-							<h:inputText id="telefone" value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control" 
+							<h:inputText value="#{funcionariosBean.funcionario.telefone}" styleClass="form-control telefone" 
 						     label="Telefone" />
 						</div>
 
@@ -55,7 +55,7 @@
 
 						<div class="col-md-4">
 							<label>Data de Admissão</label>
-							<h:inputText id="data" value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control" 
+							<h:inputText value="#{funcionariosBean.funcionario.dataAdmissao}" styleClass="form-control data" 
 							 label="Data de Admissão" >
 							    <f:convertDateTime pattern="dd/MM/yyyy"/>
 							</h:inputText>
@@ -63,7 +63,7 @@
 
 						<div class="col-md-4">
 							<label>Salário</label>
-							<h:inputText id="salario" value="#{funcionariosBean.funcionario.salario}" styleClass="form-control">
+							<h:inputText value="#{funcionariosBean.funcionario.salario}" styleClass="form-control salario">
 							     <f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2"/>
 							     <f:validateDoubleRange minimum="0"/>
 							</h:inputText>
@@ -87,7 +87,7 @@
 					<div class="row">	
 							
 						<div class="col-md-6">	
-							<h:inputText id="cep" value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control" 
+							<h:inputText value="#{funcionariosBean.funcionario.endereco.cep}" styleClass="form-control cep" 
 							pt:placeholder="CEP"  label="CEP" />
 						</div>
 						

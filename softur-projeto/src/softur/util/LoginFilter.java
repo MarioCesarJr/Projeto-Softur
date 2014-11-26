@@ -16,7 +16,7 @@ import softur.view.SessaoUsuarioMb;
 
 
 
-//@WebFilter(urlPatterns="/restrito/*")
+@WebFilter(urlPatterns="/restrito/*")
 public class LoginFilter implements Filter{
 
 	
@@ -24,7 +24,7 @@ public class LoginFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
-	/*	
+		
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		SessaoUsuarioMb sessaoUsuarioMb = (SessaoUsuarioMb) httpServletRequest
 				.getSession().getAttribute("sessaoUsuarioMb");
@@ -35,7 +35,7 @@ public class LoginFilter implements Filter{
 		}
 		
 		filterChain.doFilter(request, response);
-	*/	
+		
 	}
 
 	@Override

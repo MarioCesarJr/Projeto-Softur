@@ -4,10 +4,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import softur.entities.Usuario;
 import softur.repository.UsuarioDAO;
+import softur.util.FacesUtil;
 
 @SessionScoped
 @ManagedBean
@@ -32,8 +32,7 @@ public class SessaoUsuarioMb {
 		if (fazerLogin()) {
 			return "/restrito/admin?faces-redirect=true";
 		}
-		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage("Usuário ou senha não confere."));
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Senha ou Usuário Incorreto");
 		return "";
 	}
 
