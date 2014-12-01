@@ -10,10 +10,14 @@
 		<div class="row">
 			<div class="container-fluid">
               
+              <h:form>
+                  <h:commandButton value="Gerar PDF" styleClass="btn btn-theme" action="#{consultaVeiculoBean.imprimir}" />
+              </h:form>
+              
               <h:form id="form">
                  <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
 				   style="list-style-type: none;"/>
-              
+                          
 				<h:dataTable styleClass="table" var="veiculo" value="#{consultaVeiculoBean.veiculoList}">
 				    
 				    <h:column>
