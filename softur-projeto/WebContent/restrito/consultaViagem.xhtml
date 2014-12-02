@@ -34,7 +34,7 @@
 				    
 					<h:column>
 						<f:facet name="header">
-							Funcionario
+							Motorista
 						</f:facet>
 						
 						<h:outputText value="#{viagem.funcionario.nome}"/>
@@ -79,7 +79,9 @@
 							Valor
 						</f:facet>
 						
-						<h:outputText value="#{viagem.valor}"/>
+						<h:outputText value="#{viagem.valor}">
+						     <f:convertNumber locale="pt_BR" currencySymbol="R$" type="currency"/>
+						</h:outputText>
 		            </h:column>
 		            
 		            <h:column>
@@ -95,13 +97,19 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <f:param name="codigo" value="#{viagem.id}"/>
                             </h:link>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
 		                    <h:commandLink action="#{consultaViagemBean.excluir}" style="color:red;"
 		                    onclick="if(!confirm('Deseja realmente excluir ?')) return false;">
 		                        <span class="glyphicon glyphicon-remove-circle"></span>
 		                        <f:setPropertyActionListener target="#{consultaViagemBean.viagemSelecionada}" 
 		                        value="#{viagem}"/>
 		                        <f:ajax render="@form" />
+		                    </h:commandLink>
+		                    &nbsp;&nbsp;&nbsp;
+		                    <h:commandLink action="#{consultaViagemBean.imprimir}">
+		                          <span class="glyphicon glyphicon-download"></span>
+		                          <f:setPropertyActionListener target="#{consultaViagemBean.viagemSelecionada}"
+		                          value="#{viagem}"/>
 		                    </h:commandLink>    
                     </h:column>                       
 				</h:dataTable>
