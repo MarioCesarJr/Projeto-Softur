@@ -9,8 +9,16 @@
 	<ui:define name="content">
          
          <h:form role="form">
-             <h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   
+			 <h:panelGroup rendered="#{not empty facesContext.messageList}">
+				<div  role="alert">
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
 				   style="list-style-type: none;"/>
+				</div>
+			</h:panelGroup>	   
            
              <div class="form-group">
 				 <label>Cargo</label>
