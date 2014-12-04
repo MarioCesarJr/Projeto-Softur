@@ -36,7 +36,7 @@ public class GestaoFuncionarios {
 		}else if(funcionario.getDataAdmissao() == null || funcionario.getDataAdmissao().equals("")){
 			throw new RegraNegocioException("O campo Data de Admissão é obrigatório");
 	
-		}else if(funcionario.getSalario() == null || funcionario.getSalario().equals("")){
+		}else if(funcionario.getSalario() == null || funcionario.getSalario() == 0){
 			throw new RegraNegocioException("O campo salário é obrigatório");
      
 		}else if(funcionario.getCargo() == null || funcionario.getCargo().equals("")){
