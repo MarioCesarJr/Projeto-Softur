@@ -11,6 +11,17 @@
 			<div class="container-fluid">
 
 				<h:form>
+				
+			  <h:panelGroup rendered="#{not empty facesContext.messageList}">
+				<div  role="alert">
+					<button type="button" class="close" data-dismiss="alert" style="margin-right: 6px;">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h:messages infoClass="alert alert-info" errorClass="alert alert-danger" showDetail="false" 
+				   style="list-style-type: none;"/>
+				</div>
+			  </h:panelGroup>
+				
 					<h:dataTable styleClass="table" var="cliente"
 						value="#{consultaClienteBean.clientes}">
 
@@ -30,13 +41,7 @@
 							<h:outputText value="#{cliente.nome}" />
 						</h:column>
 
-
-
-						
-
-					
-
-						<h:column>
+                        <h:column>
 							<f:facet name="header">
 							Telefone
 						</f:facet>
@@ -52,8 +57,6 @@
 							<h:outputText value="#{cliente.cpf}" />
 						</h:column>
 
-						
-
 						<h:column>
 							<f:facet name="header">
 							E-mail
@@ -62,8 +65,7 @@
 							<h:outputText value="#{cliente.email}" />
 						</h:column>
 
-
-						<h:column>
+                        <h:column>
 							<h:link outcome="cadastroCliente">
 								<span class="glyphicon glyphicon-pencil"></span>
 								<f:param name="codigo" value="#{cliente.id}" />

@@ -3,11 +3,14 @@ package softur.view;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.persistence.PersistenceException;
 
 import softur.entities.Cliente;
 import softur.repository.Clientes;
 import softur.service.GestaoClientes;
+import softur.util.FacesUtil;
 
 @ManagedBean
 public class ConsultaClienteBean {
@@ -25,9 +28,16 @@ public class ConsultaClienteBean {
 	
 	public String excluir(){
 	    GestaoClientes gestaoClientes = new GestaoClientes();
-	    gestaoClientes.excluir(this.clienteSelecionado);
-	    this.init();
-	    return "";
+	    
+	    try{
+	    
+	    	gestaoClientes.excluir(this.clienteSelecionado);
+	        this.init();
+	    
+	    }catch(PersistenceException e){
+	    	FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Este cliente está em uma viagem  !");
+	    }     
+	        return "";
 	}
 	
 	public List<Cliente> getClientes() {
